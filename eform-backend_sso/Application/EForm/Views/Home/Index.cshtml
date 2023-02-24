@@ -1,0 +1,7 @@
+﻿<script async src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit"></script>
+<input type="hidden" name="__RequestVerificationToken" value="@ViewBag.CSRFToken">
+
+@*@{ 
+    Layout = null;
+}*@
+@Html.Raw(File.ReadAllText(Server.MapPath("~/__Index.cshtml")))

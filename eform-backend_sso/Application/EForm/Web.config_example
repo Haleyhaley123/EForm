@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  https://go.microsoft.com/fwlink/?LinkId=301879
+  -->
+<configuration>
+  <configSections>
+    <section name="nlog" type="NLog.Config.ConfigSectionHandler, NLog" />
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+  </configSections>
+  <connectionStrings>
+    <add name="EmergencyDepartmentContext" connectionString="data source=10.115.40.152;initial catalog=EFORM_TEST;persist security info=True;user id=devadmin;password=devadmin@123;MultipleActiveResultSets=True;App=EntityFramework;Connection Timeout=160" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <appSettings>
+    <add key="ProxySever" value="http://10.115.50.11:9090" />
+    <add key="NumberShowCaptCha" value="3" />
+    <add key="ReCaptCha-Site-Key" value="6Le-TpgUAAAAAFuVBMGirRLgBR9WmzuyYeB5Fu3b" />
+    <add key="ReCaptCha-Secret-Key" value="6Le-TpgUAAAAAMCss4Qg_VpvNjDXZ5kjuOSLXEJ4" />
+    <add key="SessionTimeout" value="2000" />
+
+	  <!--<add key="HIS_API_SERVER_URL" value="https://apigw.vinmec.com:8243" />
+    <add key="HIS_API_SERVER_TOKEN" value="41717af1-a393-3326-ad90-f85315124c2d" />-->
+
+	  <add key="HIS_API_SERVER_URL" value="https://apigw-test.vinmec.com:8243" />
+	  <add key="HIS_API_SERVER_TOKEN" value="03cba691-6cab-31a2-b561-44f16b8276f2" />
+
+	<add key="OH_API_SERVER_URL_ORDERS" value="https://svm-ent-uat.vingroup.local/OrionHealthComponents/soap-cert/v20.2/Orchestral.Pharmacy.Orders.Services.MedicationOrderService.svc" />
+	<add key="OH_API_CDHA" value="https://svm-ent-uat.vingroup.local/OrionHealthIntegrationWebServices/RadiologyResultService.svc"/>  
+    <add key="DevWriteLists" value="192.168.0.106,192.168.0.103,::1,172.16.27.189,127.0.0.1,10.115.88.136,10.115.50.134,10.111.25.29,10.115.88.57,10.115.88.70,10.115.88.74"/>
+    <add key="HAHIPs" value="10.115.88.80;10.111.24.179" />
+    <add key="DEV_ACCOUNT" value="ducdv11,vm.test1,vm.test2" />
+    <add key="DevUsername" value="nant11" />
+    <add key="HiddenError" value="false" />
+    <add key="ValidFileType" value="png,jpg,jpeg" />
+    <add key="FilePath" value="D:\FileShare" />
+    <add key="UserService" value="vmec.dbef" />
+    <add key="UserServicePass" value="eF@#1234!" />
+    <add key="ImageMaxSize" value="5242880" />
+    <add key="SmtpServer" value="smtptls.vingroup.net" />
+    <add key="SmtpPort" value="587" />
+    <add key="EmailName" value="it.operapp" />
+    <add key="EmailPass" value="Vinmec@1234" />
+    <add key="EmailDefault" value="v.it.operapp@vinmec.com" />
+    <add key="CovidSpecialty" value="39" />
+    <add key="DRS_PREFIX" value="DRSTEST" />
+    <add key="OHCertificateFilePath" value="Security\svm-stag-app01.vingroup.local-client.pfx" />
+    <add key="OHCertificatePassword" value="yNr+Mm?h" />
+    <add key="OHLaboratoryServiceURL" value="https://svm-ent-uat.vingroup.local/OrionHealthComponents/Laboratory/Orchestral.Laboratory.LaboratoryService.svc" />
+    <add key="OHLaboratoryServiceAddOrderURL" value="http://orionhealth.com/laboratory/ILaboratoryService/AddPlacerOrder" />
+    <add key="OHLaboratoryServiceCancelURL" value="http://orionhealth.com/laboratory/ILaboratoryService/CancelPlacerOrder" />
+    <add key="OHServiceUsername" value="rhap_int" />
+    <add key="OHServicePassword" value="Vinmec@123" />
+    <add key="OHAlliesServiceURL" value="http://10.100.12.41:8092/services/EnterpriseOrderService.EnterpriseOrderServiceHttpSoap11Endpoint" />
+    <add key="OHAlliesServiceAddOrderURL" value="http://www.vinmec.com/EnterpriseOrderService/CreateAlliedServiceOrder" />
+    <add key="OHAlliesServiceCancelURL" value="http://www.vinmec.com/EnterpriseOrderService/CancelAlliedServiceOrder" />
+    <add key="OHRadiologyServiceURL" value="http://10.100.12.41:8092/services/EnterpriseOrderService.EnterpriseOrderServiceHttpSoap11Endpoint" />
+    <add key="OHRadiologyServiceAddOrderURL" value="http://www.vinmec.com/EnterpriseOrderService/CreateRadiologyOrder" />
+    <add key="OHRadiologyServiceCancelURL" value="http://www.vinmec.com/EnterpriseOrderService/CancelRadiologyOrder" />
+    <add key="MaximumNumberOfItemPerRequest" value="1" />
+    <add key="HIS_API_TIMEOUT" value="100" />
+    <add key="PublicApiToken" value="04cba691-6cab-31a2-b561-44f16b8276f2" />
+    <add key="CutOffTime" value="11:00:00 15/12/2021" />
+    <add key="OPD_VISIT_TYPE_CODE" value="VMOPD,VMPK,VMHC,OKBTX,VMIPD,VMDC,PKIPD" />
+    <add key="SPECIAL_VISIT_TYPE_CODE" value="VMHC,VMIPD" />
+    <add key="TIME_TO_BLOCK" value="1"/>
+    <add key="ServiceGroupCodeAllowSetupQty" value="E18.01,E18.03,E18.04,E04.01,E04.03,E04.04"/>
+    <add key="ServiceCodeAllowSetupQty" value="25.6171"/>
+    <add key="AUTO_FOCUS_PXN_KHOI_TE_BAO" value="25.6171"/>
+    <add key="AUTO_FOCUS_PXN_MO_BENH_HOC" value="25.3003,25.3008,25.3006,25.3018,25.3002,25.3000,25.3012,25.3005,25.3011,25.3015,25.3016,25.3001,25.3017,25.3004,25.6170,25.6177,25.6163,25.6181,25.6166,25.6151,25.6153,25.6152,25.6122,25.6121,25.6172,25.6161,25.3010,25.3009,25.3007,25.3013,25.3100,25.6142,25.6129,25.6123,25.6127,25.6128,25.6132,25.6133,25.6134,25.6136,25.6137,25.6139,25.6140,25.6143,25.6144,25.6146,25.6148,25.6150,25.6126,25.6117,25.6101,25.6108,25.6100,25.6114,25.6115,25.6162,25.6102,25.6182,25.6120,25.6111,25.6109,25.6119,25.6103,25.6113,25.6110,25.6106,25.6185,25.6178,25.6179,25.6169,25.6107,25.6105,25.6183,25.6184,25.6112,25.6175,25.6155,25.6165,25.6156,25.6104,25.6154,25.6164,25.6116,25.6176,25.6173,25.6174,25.6157,25.6131,25.6124,25.6168,25.6167,25.6138,25.6149,25.6130,25.6145,25.6147,25.6125,25.6135,25.6159,25.6158,25.6160,25.3014,25.3103,25.3104,25.3112,25.3110,25.3102,25.3107,25.3111,25.3105,25.3106,25.3108,25.3109,25.3101,25.6194,25.6196,27.9162,27.9163,27.9164,25.6195,27.9165,27.9166,25.6198,25.62,27.9154,25.6197,27.9167,27.9168,25.6207,25.6203,27.9169,25.6193,25.6191,27.9135,27.9170,27.9171,27.9172,27.9173,27.9174,27.9175,27.9176,25.8120,27.9157,27.9158,27.9159,27.9160,27.9177,27.9178,27.9179,27.9180,27.9181,27.9145,27.9182,27.9184,27.9185,25.6199,27.9150,27.9151,27.9152,27.9153,27.9186,27.9187,25.91,27.9188,23.3088,25.6141,25.6192,25.6201,25.6202,25.6204,25.6205,27.9155,27.9156,27.9136,27.9137,27.9138,27.9139,27.9140,27.9141,27.9142,27.9143,27.9146"/>
+    <add key="AUTO_FOCUS_PXN_SINH_THIET_LANH" value="25.90"/>
+    <add key="AUTO_FOCUS_PXN_TE_BAO" value="25.16,25.7,25.13,25.15,25.1,25.19,25.3,25.17,25.23,25.6,25.6189,25.22,25.21,25.20,25.25,25.6188,27.9161,25.11,25.2,25.6186,25.14,25.6209"/>
+    <add key="AUTO_FOCUS_PXN_PHU_KHOA" value="25.73,25.78"/>
+    <add key="LOCKUSER_MSG" value="Hệ thống đang nâng cấp, vui lòng thử lại sau"/>
+  </appSettings>
+  <system.web>
+    <authentication mode="None" />
+    <compilation debug="true" targetFramework="4.6.1" />
+    <httpRuntime targetFramework="4.6.1" />
+    <customErrors mode="Off" />
+    <httpCookies httpOnlyCookies="true" requireSSL="false" />
+  </system.web>
+  <system.webServer>
+    <modules>
+      <remove name="FormsAuthentication" />
+    </modules>
+    <handlers>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+      <remove name="OPTIONSVerbHandler" />
+      <remove name="TRACEVerbHandler" />
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+    </handlers>
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Xml.XPath.XDocument" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.0.0" newVersion="4.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Xml.XmlSerializer" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Xml.XDocument" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Xml.ReaderWriter" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.ValueTuple" publicKeyToken="CC7B13FFCD2DDD51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.3.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Threading.Timer" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Threading.Tasks.Parallel" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Threading.Tasks" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Threading.Overlapped" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.0.0" newVersion="4.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Threading" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Text.RegularExpressions" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Text.Encoding.Extensions" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Text.Encoding" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Security.SecureString" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.0.0" newVersion="4.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Security.Principal" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.Serialization.Xml" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.3.0" newVersion="4.1.3.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.Serialization.Primitives" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.0.0" newVersion="4.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.Serialization.Json" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.Numerics" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.InteropServices" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.Extensions" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Resources.ResourceManager" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Reflection.Primitives" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Reflection.Extensions" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Reflection" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.ObjectModel" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Sockets" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.0.0" newVersion="4.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Requests" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Primitives" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.NetworkInformation" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+
+      <dependentAssembly>
+        <assemblyIdentity name="System.Linq.Queryable" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Linq.Parallel" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Linq.Expressions" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Linq" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.IO" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+
+      <dependentAssembly>
+        <assemblyIdentity name="System.Globalization.Extensions" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.0.0" newVersion="4.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Globalization" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Dynamic.Runtime" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Diagnostics.Tracing" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.0.0" newVersion="4.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Diagnostics.Tools" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Diagnostics.StackTrace" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.0.0" newVersion="4.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Diagnostics.Debug" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Diagnostics.Contracts" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Data.Common" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.0.0" newVersion="4.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.ComponentModel.EventBasedAsync" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.ComponentModel" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.0" newVersion="4.0.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Collections" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Collections.Concurrent" publicKeyToken="B03F5F7F11D50A3A" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+      </dependentAssembly>
+
+      <dependentAssembly>
+        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" />
+        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-11.0.0.0" newVersion="11.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin.Security" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.0.0" newVersion="4.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.0.0" newVersion="4.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Cors" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Data.Edm" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.8.5.0" newVersion="5.8.5.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Data.OData" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.8.5.0" newVersion="5.8.5.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Spatial" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.8.5.0" newVersion="5.8.5.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Memory" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.1" newVersion="4.0.1.1" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Buffers" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.3.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.IO.Pipelines" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.1" newVersion="6.0.0.1" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Extensions.DependencyInjection.Abstractions" publicKeyToken="adb9793829ddae60" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Threading.Tasks.Extensions" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.0.1" newVersion="4.2.0.1" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Numerics.Vectors" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.4.0" newVersion="4.1.4.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Bcl.AsyncInterfaces" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Extensions.Primitives" publicKeyToken="adb9793829ddae60" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.ValueTuple" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.3.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Extensions.Logging.Abstractions" publicKeyToken="adb9793829ddae60" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Text.Encodings.Web" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.IO.Compression" publicKeyToken="b77a5c561934e089" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.2.0" newVersion="4.1.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Threading.Channels" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Common.Logging.Core" publicKeyToken="af08829b84f0328e" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.4.1.0" newVersion="3.4.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Common.Logging" publicKeyToken="af08829b84f0328e" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.4.1.0" newVersion="3.4.1.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Http" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.3" newVersion="4.1.1.3" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+  </entityFramework>
+  <system.codedom>
+    <compilers>
+      <compiler extension=".cs" language="c#;cs;csharp" warningLevel="4" compilerOptions="/langversion:7.0 /nowarn:1659;1699;1701;612;618" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      <compiler extension=".vb" language="vb;vbs;visualbasic;vbscript" warningLevel="4" compilerOptions="/langversion:default /nowarn:41008,40000,40008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.VBCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    </compilers>
+  </system.codedom>
+</configuration>

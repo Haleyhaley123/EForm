@@ -1,0 +1,155 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@*Log in - @currentApp.Name@(!string.IsNullOrEmpty(currentApp.ShortDecription)?string.Concat(": ",currentApp.ShortDecription):string.Concat(""))*@</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    @*<link rel="shortcut icon" href="~/assets/img/ficon.ico" />*@
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/Assets/bootstrap/css/bootstrap.min.css">
+    <link href="~/Assets/css/DropdownSelectMoreApp.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    @*<link rel="stylesheet" href="~/Assets/icons/font-awesome/css/font-awesome.min.css">*@
+    <!-- Ionicons -->
+    @*<link rel="stylesheet" href="~/Assets/icons/ionicons/css/ionicons.min.css">*@
+    <!-- Theme style -->
+    @*<link rel="stylesheet" href="~/Assets/css/AdminLTE.css">*@
+    <link href="~/Assets/css/loginStyle.css" rel="stylesheet">
+    <link href="~/Assets/css/toastr.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/Assets/css/DropdownSelectMoreApp.css">*@
+    <!-- iCheck -->
+    @*<link rel="stylesheet" href="~/Assets/lib/iCheck/square/blue.css">*@
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro+Roboto:300,400,600,700,300italic,400italic,600italic">*@
+    <!-- jQuery 3 -->
+    <script src="~/Assets/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="~/Assets/lib/textavatar/initial.min.js"></script>
+</head>
+<body class=" login">
+    <!--Block dropdown select more App-->
+    <div id="menu-on-top">
+        <ul class="nav navbar-nav navbar-right nav_right_menu">
+            <li class="dropdown messages-menu show1" id="dropdown_select_apps ">
+
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <div style="text-align: center;font-size: 30px;">
+            <div class="text-center w-100 d-flex justify-content-center" style="margin-top:10px;"><img src="https://vis.vinmec.com/assets/media/login_logo.png" width="260" class="logo-login" alt=""></div>
+        </div>
+        <div class="row" style="border-top:3px solid #FFC107">
+            <div class="col-md-6">
+                <div class="login-card-body">
+                    <div class="login-logo " style="clear:both;" id="htmlCurrentapp">
+
+                    </div>
+
+                    <div class="form-actions" style="margin-top:50px;">
+                        <button type="submit" class="btn btn-info btnLogin" name="btnLogin" style="width: 100%">Đăng nhập</button>
+                    </div>
+
+                    <div style="margin-top:30px;" id="show">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="background: /*#efefef*/#efefef7a;">
+                <div class="login-card-guild">
+                    <h3 class="form-title"><b>Hướng dẫn đăng nhập</b></h3>
+                    <p><b>Tên đăng nhập:</b></p>
+                    <p style="font-size: 1.1rem;">Sử dụng account AD (là account đăng nhập vào máy tính với những máy Join domain Vingroup)</p>
+                    <p><b>Mật khẩu:</b></p>
+                    <p style="font-size: 1.1rem;">Mật khẩu account AD</p>
+                    <p style="font-size: 1.1rem;">Trường hợp không rõ Account AD của mình hoặc không đăng nhập được, vui lòng liên hệ bộ phận IT của đơn vị để kiểm tra</p>
+                    <p style="font-size: 1.1rem;margin-bottom:unset;"><a target="_blank" href="/huong-dan-su-dung"><b>Hướng dẫn sử dụng <i class="fa fa-arrow-circle-right"></i></b></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="notification" value="Thông báo" />
+    <input type="hidden" name="delFail" value="Địa chỉ không tồn tại" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script>
+        function AjaxPost(url, href) {
+            return $.ajax({
+                type: "POST",
+                datatype: "json",
+                data: { href: href },
+                url: url,
+            });
+
+        }
+        function AjaxGet(url) {
+            return $.ajax({
+                type: "GET",
+                datatype: "json",
+                url: url,
+            });
+        }
+
+        $(document).ready(function () {
+                localStorage.clear();
+            var noti = $('input[name=notification]').val();
+            var delFail = $('input[name=delFail]').val();
+            AjaxGet("/Home/GetListAppForm").done(function (response) {
+                console.log(response);
+                $(".show1").html(response);
+                $(".img-circle").initial({ charCount: 1, seed: 100, width: 50, height: 50, fontSize: 30 });
+
+            });
+
+            AjaxGet("/Home/GetCurrentApp").success(function (data) {
+                $("#htmlCurrentapp").html(data);
+            });
+
+            AjaxGet("/Home/GetListApp").done(function (response) {
+                $("#show").html(response);
+                $(" .img-circle").initial({ charCount: 1, seed: 100, width: 50, height: 50, fontSize: 30 });
+            });
+            $(".btnLogin").click(function () {
+         
+             /*   var token = localStorage.getItem('api-access-token');*/
+        
+                AjaxGet("/Home/Login").done(function (response) {
+                    window.location.href = response;
+
+                });
+
+            });
+        });
+
+    </script>
+</body>
+</html>
+
+@*<script type="text/javascript">
+        $(document).ready(function () {
+            var AzureRedirect = '@(System.Configuration.ConfigurationManager.AppSettings["AzureRedirect"].ToString())';
+
+            if (@count <= 1) {
+                localStorage.clear();
+                var token = localStorage.getItem('api-access-token');
+                var logined = localStorage.getItem('logined');
+                if (token == "" || token == null) {
+                var host = '@(System.Configuration.ConfigurationManager.AppSettings["host"].ToString())'
+                var appid = '@(System.Configuration.ConfigurationManager.AppSettings["AppId"].ToString())'
+
+                window.location.href = host + appid + "/vn/Authen/Login";
+            }
+            }
+
+            //else {
+            //    window.location.href = AzureRedirect + "#";
+            //}
+        });
+    </script>*@
+
+

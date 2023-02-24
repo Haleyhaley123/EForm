@@ -1,0 +1,59 @@
+diff a/Application/EForm/Controllers/BaseController.cs b/Application/EForm/Controllers/BaseController.cs	(rejected hunks)
+@@ -1,10 +1,8 @@
+ ﻿using Bussiness.IPD;
+ using DataAccess.Repository;
+-using Microsoft.Owin.Infrastructure;
+ using System;
+ using System.Collections.Generic;
+ using System.Linq;
+-using System.Security.Principal;
+ using System.Web;
+ using System.Web.Mvc;
+ 
+@@ -15,13 +13,13 @@
+        
+ 
+         protected override void OnActionExecuting(ActionExecutingContext filterContext)
+-        
+         {
+             base.OnActionExecuting(filterContext);
+             string controllerName = filterContext.HttpContext.Request.RequestContext.RouteData.Values["controller"].ToString();
+             string actionName = filterContext.HttpContext.Request.RequestContext.RouteData.Values["action"].ToString();
+             //string curRequestUrl = HttpUtility.UrlEncode(Request.Url.ToString());
+-       
++            var m = filterContext.HttpContext.Request.HttpMethod == "POST";
++        
+             if (controllerName == "Home" && actionName == "Index")
+             {
+                 var cookieCheckLogin = filterContext.HttpContext.Request.Cookies["_CookieCheckLogin"] ;
+@@ -31,28 +29,14 @@
+                 }
+                 else
+                 {
+-                    
+-                    //ICookieManager cookieManager = new ChunkingCookieManager();
+-                    var cookie = filterContext.HttpContext.Request.Cookies[".AspNet.Cookies"];
+-                    if (cookie == null)
++                    if (!filterContext.HttpContext.Request.IsAuthenticated)
+                     {
+-                        HttpContext.Request.GetOwinContext().Authentication.User = new GenericPrincipal(new GenericIdentity(string.Empty), null);
+-                        var m1 = filterContext.HttpContext.Request.IsAuthenticated;
+-                        if (!filterContext.HttpContext.Request.IsAuthenticated)
+-                        {
+-                            filterContext.Result = null;
+-                        }
+-                        //else
+-                        //{
+-                        //    //filterContext.Result = null;
+-                        //    filterContext.Result = new RedirectResult(Url.Action("DoLogin", "Home"));
+-                        //}
++                        filterContext.Result = null;
+                     }
+                     else
+                     {
+                         filterContext.Result = new RedirectResult(Url.Action("DoLogin", "Home"));
+                     }
+-                   
+                 }
+                
+             }

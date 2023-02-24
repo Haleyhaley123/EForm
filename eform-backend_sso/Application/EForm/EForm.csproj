@@ -1,0 +1,1456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{338B0702-8881-41C1-BDD3-674CB81AB05E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EForm</RootNamespace>
+    <AssemblyName>EForm</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
+    <IISExpressSSLPort>44363</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching, Version=2.16.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnyimMemcached.2.16.0\lib\net35\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.40.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlAgilityPack.1.11.40\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.13\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNetCore.Http.Features.5.0.17\lib\net461\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.8.5\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.8.5\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Http.6.0.0\lib\net461\Microsoft.Extensions.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.6.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Options.6.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.47.2.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Identity.Client.4.47.2\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.identitymodel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.7.0.0\lib\net35\microsoft.identitymodel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.25.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Abstractions.6.25.0\lib\net461\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Logging.5.3.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocol.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Protocol.Extensions.1.0.0\lib\net45\Microsoft.IdentityModel.Protocol.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.WsFederation, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Protocols.WsFederation.5.3.0\lib\net461\Microsoft.IdentityModel.Protocols.WsFederation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Tokens.5.3.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens.Saml, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Tokens.Saml.5.3.0\lib\net461\Microsoft.IdentityModel.Tokens.Saml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Xml, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Xml.5.3.0\lib\net461\Microsoft.IdentityModel.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Cors.3.0.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OpenIdConnect, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OpenIdConnect.3.0.0\lib\net45\Microsoft.Owin.Security.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.WsFederation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.WsFederation.3.0.0\lib\net45\Microsoft.Owin.Security.WsFederation.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MiniProfiler.4.2.22\lib\net461\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler.Shared, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MiniProfiler.Shared.4.2.22\lib\net461\MiniProfiler.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.4.7.13\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Pipelines.Sockets.Unofficial.2.2.2\lib\net461\Pipelines.Sockets.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.4.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.0.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RestSharp.106.0.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\StackExchange.Redis.2.2.88\lib\net461\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.PerformanceCounter.6.0.0\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IdentityModel.Tokens.Jwt.4.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Pipelines.6.0.1\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Spatial.5.8.5\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Channels.6.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Owin.5.2.7\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Authentication\CheckLogin.cs" />
+    <Compile Include="Authentication\CSRFCheck.cs" />
+    <Compile Include="Authentication\Permission.cs" />
+    <Compile Include="Authentication\Recaptcha.cs" />
+    <Compile Include="AutoMapper\AutoMapperProfile.cs" />
+    <Compile Include="Cached\RedisConnectorHelper.cs" />
+    <Compile Include="Client\HISClient.cs" />
+    <Compile Include="Common\CSRFToken.cs" />
+    <Compile Include="Common\CustomDES.cs" />
+    <Compile Include="Authentication\SessionAuthorize.cs" />
+    <Compile Include="Common\Constant.cs" />
+    <Compile Include="Client\EHosClient.cs" />
+    <Compile Include="Client\OHClient.cs" />
+    <Compile Include="Common\CustomLog.cs" />
+    <Compile Include="Common\Message.cs" />
+    <Compile Include="Common\Validator.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthenController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOCareNoteController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPhysicianNoteController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEOCApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEDApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOAssessmentForRetailServicePatientController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOBloodRequestSupplyAndConfirmationController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOBloodTransfusionChecklistController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOCardiacArrestRecordController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOExternalTransportationAssessmentController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOHandOverCheckListController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOJointConsultationForApprovalOfSurgeryController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOMortalityReportController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPatientOwnMedicationsChartController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOProcedureSummaryController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOSkinTestResultController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOSpongeSharpsAndInstrumentsCountsSheetController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOStandingOrderForRetailServiceController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOSurgicalProcedureSafetyChecklistController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseIPDApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseMedicalRecodeApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseOPDApiController.cs" />
+    <Compile Include="Controllers\DoctorPlaceDiagnosticsOrderController.cs" />
+    <Compile Include="Controllers\EDControllers\EDAssessmentForReatailServiceController.cs" />
+    <Compile Include="Controllers\EDControllers\EDCareNoteController.cs" />
+    <Compile Include="Controllers\EDControllers\EDConsentForTransfusionOfBloodController.cs" />
+    <Compile Include="Controllers\EDControllers\EDHIVTestingConsentController.cs" />
+    <Compile Include="Controllers\EDControllers\EDFallRickScreenningController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPhysicianNoteController.cs" />
+    <Compile Include="Controllers\EDControllers\EDConsentForOperationOrrProcedureController.cs" />
+    <Compile Include="Controllers\EDControllers\EDRequestNoCardiopulmonaryResuscitationController.cs" />
+    <Compile Include="Controllers\EDControllers\EDSurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\EDControllers\EDProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\EDControllers\EDSelfHarmRiskScreeningToolController.cs" />
+    <Compile Include="Controllers\EDControllers\EDFormController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIOConfirmFormsController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIOContraintNewbornAndPregnantWomanController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIORequestNoCardiopulmonaryResuscitationController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIOAllFormController.cs" />
+    <Compile Include="Controllers\EIOControllers\EMRFormController.cs" />
+    <Compile Include="Controllers\EIOControllers\PreAnesthesiaConsultationController.cs" />
+    <Compile Include="Controllers\EIOControllers\MasterTableController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIOFormController.cs" />
+    <Compile Include="Controllers\EIOControllers\SynMasterTableController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCHIVTestingConsentController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCConsentForOperationOrrProcedureController.cs" />
+    <Compile Include="Controllers\GeneralControllers\PROMForCoronaryDiseaseController.cs" />
+    <Compile Include="Controllers\EIOControllers\ProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\EIOControllers\SurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCObservationChartController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCSurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCSkinTestResultController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCCardiacArrestRecordController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCHandOverCheckListController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCInitialAssessmentForOnGoingController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCFallRiskScreeningController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCInitialAssessmentForShortTermController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCOutpatientExaminationNoteController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCDocumentController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCProcedureSumarryController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCStandingOrderController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCSurgicalProcedureSafetyChecklistController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCSpongeSharpsAndInstrumentsCountsSheetsController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\GeneralControllers\CustomerController.cs" />
+    <Compile Include="Controllers\GeneralControllers\DietCodeController.cs" />
+    <Compile Include="Controllers\GeneralControllers\OHMedicationHistoryController.cs" />
+    <Compile Include="Controllers\GeneralControllers\PROMForheartFailureController.cs" />
+    <Compile Include="Controllers\GeneralControllers\StillBirthController.cs" />
+    <Compile Include="Controllers\GeneralControllers\TableDatasController.cs" />
+    <Compile Include="Controllers\IPDControllers\BradenScaleController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDConfirmDischargeWithoutDirectController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDConsentForTransfusionOfBloodController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDHIVTestingConsentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDConsultationDrugWithAnAsteriskMarkController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDDischargePreparationChecklistController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDExternalTransportationAssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDFallRiskAssessmentForPedatricController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDGlamorganController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInitialAssessmentForNeonatalMaternityController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInitialAssessmentForNewbornsController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInitialAssessmentForUterineLifeTowHoursController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInjuryCertificateController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDCoronaryInterventionController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordExtenstionController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicationHistoryForChildController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMonitoringSheetForPatientsWithExtravasationOfCancerDrugsController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMortalityReportController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDNeonatalObservationChartController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPainRecordController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPointOfCareTestingController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPPROMForCoronaryDiseaseController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDConsentForOperationOrrProcedureController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPROMForheartFailureController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDRequestNoCardiopulmonaryResuscitationController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDScaleForAssessmentOfSuicideIntentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSetupMedicalRecordController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSpongeSharpsAndInstrumentsCountsSheetsController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDBloodRequestSupplyAndConfirmationController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDBloodTransfusionChecklistController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPatientOwnMedicationsChartControllerController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDCareNoteController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordPart3Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordPart2Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordPart1Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDObservationChartController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPhysicianNoteController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDStandingOrderController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSumOf15DayTreatmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSurgeryCertificateV3Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSurgeryCertificateController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSurgicalProcedureSafetyChecklistController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDTakeCareOfPatientsWithCovid19RecommentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDTakeCareOfPatientsWithCovid19AssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicationHistoryController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDTakePlacentaController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDThrombosisRiskFactorAssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDThrombosisRiskFactorAssessmentForGeneralSurgeryPatientController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDVerbalOrderFormController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDVitalSignForPediatricController.cs" />
+    <Compile Include="Controllers\IPDControllers\VitalSignForAdultController.cs" />
+    <Compile Include="Controllers\IPDControllers\VitalSignsForPregnantWomanController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\EOCMedicalRecordController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\MedicalRecordAlliedServiceController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\MedicalRecordRadiologyHistoryController.cs" />
+    <Compile Include="Controllers\MedicationAdministrationRecordControllers\MedicationAdministrationRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDJointConsultationForApprovalOfSurgeryController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDHIVTestingConsentController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPregnancyFollowUpRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPPROMForCoronaryDiseaseController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDClinicalBreastExamNoteController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDGENBRCAController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDDiseasesCertificationController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDNCCNBROV1Controller.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPROMForheartFailureController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDConsentForOperationOrrProcedureController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDRiskAssessmentForCancerController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSurgeryRespiratoryAndSurgeryCardiologyController.cs" />
+    <Compile Include="Controllers\PathologyMicrobiologyFormController.cs" />
+    <Compile Include="Controllers\PrescriptionControllers\PrescriptionController.cs" />
+    <Compile Include="Controllers\DiagnosticReportingController.cs" />
+    <Compile Include="Controllers\PublicApiController.cs" />
+    <Compile Include="Helper\ApiHelper.cs" />
+    <Compile Include="Models\DataHCModel.cs" />
+    <Compile Include="Models\DetailPharmacyModel.cs" />
+    <Compile Include="Models\DiagnosticReporting\DiagnosticReportingParameterModel.cs" />
+    <Compile Include="Models\DietCodeParameterModel.cs" />
+    <Compile Include="Models\EIOFormConfirmModel.cs" />
+    <Compile Include="Models\EIOModels\EIOExternalTransportationAssessmentItemModel.cs" />
+    <Compile Include="Models\EIOModels\EIOJointConsultationForApprovalOfSurgeryResponse.cs" />
+    <Compile Include="Models\FormDataValue.cs" />
+    <Compile Include="Models\HISChargeDetailModel.cs" />
+    <Compile Include="Models\HISServiceModel.cs" />
+    <Compile Include="Models\IpdDoctor.cs" />
+    <Compile Include="Models\IPDModels\DiagnosisModel.cs" />
+    <Compile Include="Models\IPDModels\IPDThrombosisRiskFactorAssessmentParams.cs" />
+    <Compile Include="Models\IPDModels\MEWItemModel.cs" />
+    <Compile Include="Models\IPDModels\VitalSignsForPregnantWomanParams.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\Age.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\CustomerMedicationInfoModel.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\MedicationGroupByVisitCode.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\MedicationInfoModel.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\IPDPrescriptionModel.cs" />
+    <Compile Include="Models\OrdersOutput.cs" />
+    <Compile Include="Models\OrdersRequest.cs" />
+    <Compile Include="Models\OrdersResponse.cs" />
+    <Compile Include="Models\PrescriptionModel.cs" />
+    <Compile Include="Models\PrescriptionModels\AssessmentModel.cs" />
+    <Compile Include="Models\PrescriptionModels\DataFromViHCModel.cs" />
+    <Compile Include="Models\PrescriptionModels\PrescriptionVisitModel.cs" />
+    <Compile Include="Models\PrescriptionModels\UserConfirmModel.cs" />
+    <Compile Include="Models\ServicesParameterModel.cs" />
+    <Compile Include="Models\PrescriptionModels\VisitMedicalInfo.cs" />
+    <Compile Include="Models\ValidateCustomInHospital.cs" />
+    <Compile Include="Controllers\EDControllers\EDProcedureSummaryController.cs" />
+    <Compile Include="Controllers\EIOControllers\HighlyRestrictedAntimicrobialConsultController.cs" />
+    <Compile Include="Controllers\EIOControllers\TestApiController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCCustomerController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCController.cs" />
+    <Compile Include="Controllers\GeneralControllers\OHProblemListController.cs" />
+    <Compile Include="Controllers\GeneralControllers\SyncResultOfParaclinicalController.cs" />
+    <Compile Include="Controllers\GeneralControllers\TestCovidController.cs" />
+    <Compile Include="Controllers\GeneralControllers\UnlockFormController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDDocumentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDGuggingSwallowingScreenController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDJointConsultationForApprovalOfSurgeryController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDProcedureSummaryController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\IPDMRMedicalRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDAssessmentForRetailServicePatientController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDObservationChartController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSkinTestResultController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSpongeSharpsAndInstrumentsCountsSheetsController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDStandingOrderForRetailServiceController.cs" />
+    <Compile Include="Models\EOCModel\EOCTranfers.cs" />
+    <Compile Include="Models\IPDModels\MedicalReportDataModels.cs" />
+    <Compile Include="Models\IPDModels\TransferInfoModel.cs" />
+    <Compile Include="Models\VitalSignsForPregnantWomanItem.cs" />
+    <Compile Include="ScheduleJobs\NotifyAPIGWService.cs" />
+    <Compile Include="Services\ChargeLog.cs" />
+    <Compile Include="Services\OHRadiologyServiceReport.cs" />
+    <Compile Include="Services\OHService.cs" />
+    <Compile Include="Utils\ChronicUtil.cs" />
+    <Compile Include="Utils\ClinicalExaminationAndFindings.cs" />
+    <Compile Include="Utils\ClosestVisitIn24H.cs" />
+    <Compile Include="Utils\CustomerUtil.cs" />
+    <Compile Include="Utils\Diagnosis.cs" />
+    <Compile Include="Utils\Email.cs" />
+    <Compile Include="Utils\EmergencyRecordAssessment.cs" />
+    <Compile Include="Utils\ICDConvert.cs" />
+    <Compile Include="Utils\ICDUtil.cs" />
+    <Compile Include="Utils\IPDMedicalRecordAssessment.cs" />
+    <Compile Include="Utils\IPDTransfer.cs" />
+    <Compile Include="Utils\NotificationCreator.cs" />
+    <Compile Include="Utils\InHospital.cs" />
+    <Compile Include="Utils\RTFDecoder.cs" />
+    <Compile Include="Utils\TranslationUtil.cs" />
+    <Compile Include="Utils\VisitAllergy.cs" />
+    <Compile Include="Utils\VisitCreater.cs" />
+    <Compile Include="Controllers\EDControllers\EDAmbulanceRunReportController.cs" />
+    <Compile Include="Controllers\EDControllers\EDBloodTransfusionChecklistController.cs" />
+    <Compile Include="Controllers\EDControllers\EDCardiacArrestRecordController.cs" />
+    <Compile Include="Controllers\EDControllers\EDExternalTransportationAssessmentController.cs" />
+    <Compile Include="Controllers\EDControllers\EDMortalityReportController.cs" />
+    <Compile Include="Controllers\EDControllers\EDInjuryCertificateController.cs" />
+    <Compile Include="Controllers\EDControllers\EDJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\EDControllers\EDAssessmentForRetailServicePatientController.cs" />
+    <Compile Include="Controllers\EDControllers\EDConsultationDrugWithAnAsteriskMarkController.cs" />
+    <Compile Include="Controllers\EDControllers\EDJointConsultationForApprovalOfSurgeryController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientManagementController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientOwnMedicationsChartController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPointOfCareTestingController.cs" />
+    <Compile Include="Controllers\EDControllers\EDSkinTestResultController.cs" />
+    <Compile Include="Controllers\EDControllers\EDStandingOrderController.cs" />
+    <Compile Include="Controllers\EDControllers\EDStandingOrderForRetailServiceController.cs" />
+    <Compile Include="Controllers\CustomerInfoControllers\AllergyController.cs" />
+    <Compile Include="Controllers\EDControllers\EDBloodRequestSupplyAndConfirmationController.cs" />
+    <Compile Include="Controllers\EDControllers\EDSyncVisitHistoryController.cs" />
+    <Compile Include="Controllers\EDControllers\EDHumanResourceAssessmentController.cs" />
+    <Compile Include="Controllers\GeneralControllers\ClinicController.cs" />
+    <Compile Include="Controllers\CustomerInfoControllers\ComplexOutpatientCaseSummaryController.cs" />
+    <Compile Include="Controllers\CustomerInfoControllers\HeightAndWeightController.cs" />
+    <Compile Include="Controllers\GeneralControllers\MedicationMasterdataController.cs" />
+    <Compile Include="Controllers\GeneralControllers\NotificationController.cs" />
+    <Compile Include="Controllers\GeneralControllers\PatientMedicationListController.cs" />
+    <Compile Include="Controllers\IPDControllers\CustomerIPDController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDCardiacArrestRecordControllerController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDFallRiskAssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDHandOverCheckListController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInitialAssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPlanOfCareController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\EDMedicalRecordController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\MedicalRecordController.cs" />
+    <Compile Include="Controllers\EDControllers\CustomerDetailController.cs" />
+    <Compile Include="Controllers\EDControllers\EDDischargeInformationController.cs" />
+    <Compile Include="Controllers\EDControllers\EDController.cs" />
+    <Compile Include="Controllers\EDControllers\CustomersEDController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientMedicationListController.cs" />
+    <Compile Include="Controllers\EDControllers\EDVitalSignController.cs" />
+    <Compile Include="Controllers\GeneralControllers\EDStatusController.cs" />
+    <Compile Include="Controllers\EDControllers\EDEmergencyTriageRecordsController.cs" />
+    <Compile Include="Controllers\EDControllers\EDHandOverCheckListController.cs" />
+    <Compile Include="Controllers\GeneralControllers\HISCustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\GeneralControllers\AccountController.cs" />
+    <Compile Include="Controllers\EDControllers\EDEmergencyRecordsController.cs" />
+    <Compile Include="Controllers\GeneralControllers\ICD10Controller.cs" />
+    <Compile Include="Controllers\GeneralControllers\LogController.cs" />
+    <Compile Include="Controllers\GeneralControllers\MasterDatasController.cs" />
+    <Compile Include="Controllers\EDControllers\EDMonitoringChartAndHandoverFormsController.cs" />
+    <Compile Include="Controllers\EDControllers\EDObservationChartController.cs" />
+    <Compile Include="Controllers\EDControllers\EDDocumentController.cs" />
+    <Compile Include="Controllers\EDControllers\EDOrderController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\OPDMedicalRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\CustomerOPDController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDCardiacArrestRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDDocumentController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDHandOverCheckListController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDInitialAssessmentController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPatientMedicationListController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDOutpatientExaminationNoteController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDStandingOrderController.cs" />
+    <Compile Include="Controllers\GeneralControllers\RoomsController.cs" />
+    <Compile Include="Controllers\GeneralControllers\SitesController.cs" />
+    <Compile Include="Controllers\EDControllers\EDSpongeSharpsAndInstrumentsCountsSheetsController.cs" />
+    <Compile Include="Controllers\GeneralControllers\SpecialtyController.cs" />
+    <Compile Include="Controllers\GeneralControllers\StandingOrderMasterDataController.cs" />
+    <Compile Include="Controllers\GeneralControllers\FileController.cs" />
+    <Compile Include="Controllers\GeneralControllers\UsersController.cs" />
+    <Compile Include="Controllers\GeneralControllers\VisitTypeGroupController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDProcedureSumarryController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSurgicalProcedureSafetyChecklistController.cs" />
+    <Compile Include="Controllers\TranslationControllers\TranslationController.cs" />
+    <Compile Include="Controllers\TranslationControllers\TranslationMedicalReportController.cs" />
+    <Compile Include="Filters\CustomModifyingErrorMessageDelegatingHandler.cs" />
+    <Compile Include="Filters\CustomExceptionFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ActiveDirectoryHelper.cs" />
+    <Compile Include="Cached\CachedLoginFailed.cs" />
+    <Compile Include="Cached\CachedSession.cs" />
+    <Compile Include="Middlewares\LogChangeMiddleware.cs" />
+    <Compile Include="Models\ADUserDetailModel.cs" />
+    <Compile Include="Models\ComplexOutpatientCaseSummaryParameterModel.cs" />
+    <Compile Include="Models\CustomerEDParameterModel.cs" />
+    <Compile Include="Models\CustomerManualUpdateParameterModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\EDModels\EDParameterModel.cs" />
+    <Compile Include="Models\EDModels\EDQueryModel.cs" />
+    <Compile Include="Models\EIOModels\EIOBloodRequestSupplyAndConfirmationModel.cs" />
+    <Compile Include="Models\EIOModels\EIOCardiacArrestRecordTableModel.cs" />
+    <Compile Include="Models\EIOModels\EIOSurgicalProcedureSafetyChecklistDataModel.cs" />
+    <Compile Include="Models\HandOverCheckListModel.cs" />
+    <Compile Include="Models\HISCustomerParameterModel.cs" />
+    <Compile Include="Models\HumanResourceQueryModel.cs" />
+    <Compile Include="Models\ICD10ParameterModel.cs" />
+    <Compile Include="Models\ICDModel.cs" />
+    <Compile Include="Models\IPDModels\IPDIAMasterData.cs" />
+    <Compile Include="Models\IPDModels\IPDIASpecialRequestModel.cs" />
+    <Compile Include="Models\IPDModels\IPDParameterModel.cs" />
+    <Compile Include="Models\IPDModels\IPDQueryModel.cs" />
+    <Compile Include="Models\LabResultModel.cs" />
+    <Compile Include="Models\LoginParameterModel.cs" />
+    <Compile Include="Models\LogParameterModel.cs" />
+    <Compile Include="Models\MasterDataParameterModel.cs" />
+    <Compile Include="Models\EDModels\ObservationChartParameterModel.cs" />
+    <Compile Include="Models\MedicalRecordModels\MedicalRecordViewModel.cs" />
+    <Compile Include="Models\MedicationMasterdataModel.cs" />
+    <Compile Include="Models\NotificationModel.cs" />
+    <Compile Include="Models\OPDModels\OPDParameterModel.cs" />
+    <Compile Include="Models\OPDModels\OPDQueryModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\PagingParameterModel.cs" />
+    <Compile Include="Models\EDModels\PatientHandOverRecordParameterModel.cs" />
+    <Compile Include="Models\EDModels\PatientProgressNoteParamModel.cs" />
+    <Compile Include="Models\PatientManagementModel.cs" />
+    <Compile Include="Models\PatientMedicationListModel.cs" />
+    <Compile Include="Models\SiteSpecialtyModel.cs" />
+    <Compile Include="Models\SpecialtyParameterModel.cs" />
+    <Compile Include="Models\StatusModel.cs" />
+    <Compile Include="Models\TranslateModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\VisitModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\AuthorizationServerProvider.cs" />
+    <Compile Include="Provider\UserRepo.cs" />
+    <Compile Include="ScheduleJobs\ClearUnuseLog.cs" />
+    <Compile Include="ScheduleJobs\JobScheduler.cs" />
+    <Compile Include="ScheduleJobs\NotifyBlock24h.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utils\VisitHistory.cs" />
+    <Compile Include="Utils\VisitStatus.cs" />
+    <Compile Include="Utils\VisitTransfer.cs" />
+    <Content Include="Assets\css\DropdownSelectMoreApp.css" />
+    <Content Include="Assets\css\DropdownSelectMoreAppCustom.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\all.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\all.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\brands.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\brands.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\fontawesome.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\fontawesome.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\regular.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\regular.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\solid.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\solid.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\svg-with-js.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\svg-with-js.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\v4-font-face.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\v4-font-face.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\v4-shims.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\v4-shims.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\v5-font-face.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\css\v5-font-face.min.css" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\all.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\all.min.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\brands.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\brands.min.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\conflict-detection.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\conflict-detection.min.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\fontawesome.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\fontawesome.min.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\regular.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\regular.min.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\solid.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\solid.min.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\v4-shims.js" />
+    <Content Include="Assets\fontawesome-free-6.2.1-web\js\v4-shims.min.js" />
+    <Content Include="Assets\img\ficon.ico" />
+    <Content Include="Assets\img\Login_Product_fHD.png" />
+    <Content Include="Assets\img\vecteezy_user-plus-icon_7275158.png" />
+    <Content Include="Assets\img\z3938098061439_8015e9f271d2668f1d76e44c52cd3967.jpg" />
+    <Content Include="Assets\toastr\toastr.min.js" />
+    <Content Include="static\140x80.png" />
+    <Content Include="static\6565520.png" />
+    <Content Include="static\add-user.png" />
+    <Content Include="static\bgrTaiMat.png" />
+    <Content Include="static\bgrTaiMat2.png" />
+    <Content Include="static\canh_dao.png" />
+    <Content Include="static\car194X194.gif" />
+    <Content Include="static\chu-ky.png" />
+    <Content Include="static\chu_ky.jpg" />
+    <Content Include="static\chu_ky.png" />
+    <Content Include="static\chu_ky_2.PNG" />
+    <Content Include="static\css\app.66b78b659dac2aae8155c903d4c27520.css" />
+    <Content Include="static\css\app.d62ecc2ddb02a1d0fb04abb2afee790c.css" />
+    <Content Include="static\dong_tu.png" />
+    <Content Include="static\favicon.ico" />
+    <Content Include="static\fff.png" />
+    <Content Include="static\ho_hap.png" />
+    <Content Include="static\icons\closedhand.cur" />
+    <Content Include="static\icons\doctor.png" />
+    <Content Include="static\icons\medical-secretary.png" />
+    <Content Include="static\icons\nurse.png" />
+    <Content Include="static\icons\openhand.cur" />
+    <Content Include="static\image_5.png" />
+    <Content Include="static\image_6.png" />
+    <Content Include="static\img\bg-login.png" />
+    <Content Include="static\img\fontawesome-webfont.912ec66.svg" />
+    <Content Include="static\img\glyphicons-halflings-regular.8988968.svg" />
+    <Content Include="static\img\heart.png" />
+    <Content Include="static\img\jquery-file-upload-scripts.png" />
+    <Content Include="static\img\logo.png" />
+    <Content Include="static\img\logo_vinmec.svg" />
+    <Content Include="static\js\0.1572669d101bf25cdc9f.js" />
+    <Content Include="static\js\1.923a5221678efb8e08c1.js" />
+    <Content Include="static\js\10.2b6509a150358e507072.js" />
+    <Content Include="static\js\100.a375d8fd0be006012c04.js" />
+    <Content Include="static\js\101.0e3eb06969ef9ee22352.js" />
+    <Content Include="static\js\102.12353eacb7ff0225218d.js" />
+    <Content Include="static\js\103.e89353a7c779820fa098.js" />
+    <Content Include="static\js\104.9caf62cfa76a5d0c21be.js" />
+    <Content Include="static\js\105.0a6b59e5fe87adce73eb.js" />
+    <Content Include="static\js\106.51984ebdb5a2be082c38.js" />
+    <Content Include="static\js\107.60802cc782595bc4a48a.js" />
+    <Content Include="static\js\108.4ca458a189a52cc4c94d.js" />
+    <Content Include="static\js\109.20dddbef36052cb852c1.js" />
+    <Content Include="static\js\11.c2a0dcdb6281f18788d3.js" />
+    <Content Include="static\js\110.ec9ccfe228b62f8e1b54.js" />
+    <Content Include="static\js\111.853f8913466a247be857.js" />
+    <Content Include="static\js\112.b358af8b399804ccf341.js" />
+    <Content Include="static\js\113.689f292396d38a66ce88.js" />
+    <Content Include="static\js\114.00281226d9a84b4d87f5.js" />
+    <Content Include="static\js\115.477e1e750574cb09a6da.js" />
+    <Content Include="static\js\116.cee19a81d23713dc6dad.js" />
+    <Content Include="static\js\117.5106d59f679c0a2199d4.js" />
+    <Content Include="static\js\118.ff5e0c89a5d95f22dce5.js" />
+    <Content Include="static\js\119.88ffc241b5e12055bf6c.js" />
+    <Content Include="static\js\12.0e365957871994580f3d.js" />
+    <Content Include="static\js\120.cea4022a57f53a3cf82a.js" />
+    <Content Include="static\js\121.4432840a80360ce301fb.js" />
+    <Content Include="static\js\122.75577fef0980837ebdc4.js" />
+    <Content Include="static\js\123.b60daf2888f6f757eeaf.js" />
+    <Content Include="static\js\124.2f9e3c5a7ce487c5a608.js" />
+    <Content Include="static\js\125.e905f740a09b8edb8190.js" />
+    <Content Include="static\js\126.42940aafb211ded8946c.js" />
+    <Content Include="static\js\127.2d1ce38c5a64b188f381.js" />
+    <Content Include="static\js\128.fa9b932e265c22bafda6.js" />
+    <Content Include="static\js\129.b44d7e8130e65b64d748.js" />
+    <Content Include="static\js\13.a6b488d13b640c14fec7.js" />
+    <Content Include="static\js\130.c99809dbbeb1ecd21109.js" />
+    <Content Include="static\js\131.a32bf0a90a61a614bbcf.js" />
+    <Content Include="static\js\132.8bccca88ddf3f27715f7.js" />
+    <Content Include="static\js\133.9af83a6258da720cb4a5.js" />
+    <Content Include="static\js\134.bab1e4f003db63cdc267.js" />
+    <Content Include="static\js\135.fa2b8aaa99635ccc48d6.js" />
+    <Content Include="static\js\136.66e0179e1c20d3891e8e.js" />
+    <Content Include="static\js\137.2a13108c315b4c1cb28e.js" />
+    <Content Include="static\js\138.bc64bf25f6de6c00bbcc.js" />
+    <Content Include="static\js\139.8140888152af52397662.js" />
+    <Content Include="static\js\14.4595fb01bd6165939df0.js" />
+    <Content Include="static\js\140.744cc942d06427852a0e.js" />
+    <Content Include="static\js\141.15ddaed95039386bd0f6.js" />
+    <Content Include="static\js\142.2e36d3babccc0cbdbcba.js" />
+    <Content Include="static\js\143.2e795971aabf10c5f741.js" />
+    <Content Include="static\js\144.e24b9b2ce0047eb19c6a.js" />
+    <Content Include="static\js\145.1e2e02e7b9c790c16840.js" />
+    <Content Include="static\js\146.0822267a0cc8fdd276cc.js" />
+    <Content Include="static\js\147.347891fda5f6f9f9ed4f.js" />
+    <Content Include="static\js\148.49c568a76b7e96c7a18a.js" />
+    <Content Include="static\js\149.fc4eb987c26b962aa55d.js" />
+    <Content Include="static\js\15.fa49e85c2e5df02ea68a.js" />
+    <Content Include="static\js\150.2fe7cd549abc3b92f1cb.js" />
+    <Content Include="static\js\151.7607d61056137e60d2ae.js" />
+    <Content Include="static\js\152.07d6927d2afb565e85a9.js" />
+    <Content Include="static\js\153.0181cfd7df141937eb9f.js" />
+    <Content Include="static\js\154.0ced8e70e46a92f6a469.js" />
+    <Content Include="static\js\16.cbb6d7211ac04e006708.js" />
+    <Content Include="static\js\17.847e44366c6c70c114e6.js" />
+    <Content Include="static\js\18.9c427766ae1f0961960b.js" />
+    <Content Include="static\js\19.67515bb5e738e99f4600.js" />
+    <Content Include="static\js\2.88672a3da97ce53eaacd.js" />
+    <Content Include="static\js\20.da95ffb595ec71aa2d70.js" />
+    <Content Include="static\js\21.532d5fdda8efde934934.js" />
+    <Content Include="static\js\22.6db6957ce07fe431086d.js" />
+    <Content Include="static\js\23.6851e9cf8c6d299a5ca7.js" />
+    <Content Include="static\js\24.0fd0d921b355da8ac5a5.js" />
+    <Content Include="static\js\25.2c957fddcbde6ee5fccf.js" />
+    <Content Include="static\js\26.66ddbc2a5bb54dedafaf.js" />
+    <Content Include="static\js\27.ccc12e3926cda0af8cbb.js" />
+    <Content Include="static\js\28.f338c1ae3e55c9ae8a85.js" />
+    <Content Include="static\js\29.cd58660d75e7ef236a7d.js" />
+    <Content Include="static\js\3.2602fe292dd831c9883a.js" />
+    <Content Include="static\js\30.15556108c6530806bfe6.js" />
+    <Content Include="static\js\31.7ea78f750dd21138e9da.js" />
+    <Content Include="static\js\32.6aff3d3cf2dda37cb6d1.js" />
+    <Content Include="static\js\33.239699f1eaa5a1f797e4.js" />
+    <Content Include="static\js\34.9dee7b89bb80d17a010b.js" />
+    <Content Include="static\js\35.9761f01d9cd3ffa3b893.js" />
+    <Content Include="static\js\36.c9a9bae2329000cfcfc5.js" />
+    <Content Include="static\js\37.590ea62217a4b84ec663.js" />
+    <Content Include="static\js\38.36dd5a1ccb6e473d17fe.js" />
+    <Content Include="static\js\39.7c4c8bb6a8130ecf4f55.js" />
+    <Content Include="static\js\4.b8c60ed8ae397873b590.js" />
+    <Content Include="static\js\40.a9ca0e74147c7ce0e243.js" />
+    <Content Include="static\js\41.2ef76973b5864a5b1bc7.js" />
+    <Content Include="static\js\42.12676751d8d644fffdec.js" />
+    <Content Include="static\js\42.20ba61d59d4e473c165c.js" />
+    <Content Include="static\js\43.8029c8c34fca6b1a42d8.js" />
+    <Content Include="static\js\44.120e869ea1f4a64de045.js" />
+    <Content Include="static\js\45.97c67c186ebe5e695333.js" />
+    <Content Include="static\js\46.6308f746305244b6852c.js" />
+    <Content Include="static\js\47.9e28241554ce2970b232.js" />
+    <Content Include="static\js\48.6c9576b01701c3c728fd.js" />
+    <Content Include="static\js\49.a49b19405fef9837b207.js" />
+    <Content Include="static\js\5.2621a486f179e5a750fd.js" />
+    <Content Include="static\js\50.a066e9dbbc11641da23a.js" />
+    <Content Include="static\js\51.585def5b23fdf91db12b.js" />
+    <Content Include="static\js\52.d1340c25e94da3e1bc53.js" />
+    <Content Include="static\js\53.8c03a26cc443acfe3b15.js" />
+    <Content Include="static\js\54.8d4b2eef3a9c967599b7.js" />
+    <Content Include="static\js\55.58c95915f0edd6c57896.js" />
+    <Content Include="static\js\56.c2cc9673834c9e010ae8.js" />
+    <Content Include="static\js\57.e67bafccc48a0267344d.js" />
+    <Content Include="static\js\58.3429564120c94e467bcf.js" />
+    <Content Include="static\js\59.54708a7d18658ccc0156.js" />
+    <Content Include="static\js\6.473118af95c46ecd5895.js" />
+    <Content Include="static\js\60.0e60bc95c84397980a11.js" />
+    <Content Include="static\js\61.2e5981eafbfc473b3d68.js" />
+    <Content Include="static\js\62.3d8e00bf4ac862bcd791.js" />
+    <Content Include="static\js\63.67a2e2a1f574f298d891.js" />
+    <Content Include="static\js\64.12360cb2a302f44fa3ec.js" />
+    <Content Include="static\js\65.c0a212bc7248202d325e.js" />
+    <Content Include="static\js\66.044c42e92a2ce30f781a.js" />
+    <Content Include="static\js\67.503c568ad2bd6e0f5de2.js" />
+    <Content Include="static\js\68.5e2555298d22b627ec9c.js" />
+    <Content Include="static\js\69.93faf324c63cb53e0ec9.js" />
+    <Content Include="static\js\7.08fe986222c8cb4d7645.js" />
+    <Content Include="static\js\70.43b6e592d7c8f04bf15a.js" />
+    <Content Include="static\js\71.d387df1ef12b60519a1b.js" />
+    <Content Include="static\js\72.eb6405b6a2d78eb9a37f.js" />
+    <Content Include="static\js\73.8822626ec6a236c7dbbc.js" />
+    <Content Include="static\js\74.1c78430ad8d0eefaf039.js" />
+    <Content Include="static\js\75.19e63c1bdc59c8b361d5.js" />
+    <Content Include="static\js\76.2d6686ce541947fd75fe.js" />
+    <Content Include="static\js\77.bc32b76325e8079e5c48.js" />
+    <Content Include="static\js\78.634c2c8aa3d106a711d4.js" />
+    <Content Include="static\js\79.767637cb6194ab65a181.js" />
+    <Content Include="static\js\8.d4fa4a766ccb6a383d0a.js" />
+    <Content Include="static\js\80.38b8a1633823a4c6dc3f.js" />
+    <Content Include="static\js\81.ba321210dd0a975915e1.js" />
+    <Content Include="static\js\82.764b11b3beb73d9a70fe.js" />
+    <Content Include="static\js\83.68f8af132767c8669894.js" />
+    <Content Include="static\js\84.3f62659d30fad5718f1f.js" />
+    <Content Include="static\js\85.93d2e2d5bbf6c40b3849.js" />
+    <Content Include="static\js\86.85eed7f2419aa113b6f3.js" />
+    <Content Include="static\js\87.3a69430c3e7ea7bc893a.js" />
+    <Content Include="static\js\88.b2431f9fdd6e48ae0aa2.js" />
+    <Content Include="static\js\89.05ea04648597e8a3b50f.js" />
+    <Content Include="static\js\9.ebd4583c1aa1d7dc406e.js" />
+    <Content Include="static\js\90.4179c948d9dcb368c844.js" />
+    <Content Include="static\js\91.767e4f80b9e13628e304.js" />
+    <Content Include="static\js\92.5a391066af54d528d4c5.js" />
+    <Content Include="static\js\93.61d83ae8c7dafd091dbd.js" />
+    <Content Include="static\js\94.8f089ff379e3640919f9.js" />
+    <Content Include="static\js\95.fe5ab315035298c865dc.js" />
+    <Content Include="static\js\96.c8cf6bce35c3f94a86aa.js" />
+    <Content Include="static\js\97.ef6efe738ae88dafde34.js" />
+    <Content Include="static\js\98.05468b36f853730934e9.js" />
+    <Content Include="static\js\99.6be477c3f5b4d40b2c55.js" />
+    <Content Include="static\js\app.033edbfe57c99193848b.js" />
+    <Content Include="static\js\app.64fec1af346239472d20.js" />
+    <Content Include="static\js\manifest.8cb82a4620d07c4f2afc.js" />
+    <Content Include="static\js\manifest.b886d696e55c68865ddf.js" />
+    <Content Include="static\js\vendor.626e9e8b2aac074ad338.js" />
+    <Content Include="static\khac.png" />
+    <Content Include="static\kisspng-cap-hat-christmas-sock-santa-claus.png" />
+    <Content Include="static\kisspng-fir-christmas.png" />
+    <Content Include="static\Logo Vinmec International Hospitall 1.png" />
+    <Content Include="static\logo.png" />
+    <Content Include="static\logo10.png" />
+    <Content Include="static\logo_.png" />
+    <Content Include="static\logo_01.png" />
+    <Content Include="static\logo_10y.png" />
+    <Content Include="static\man.png" />
+    <Content Include="static\MedicalRecordPrinter.css" />
+    <Content Include="static\meme.jpg" />
+    <Content Include="static\normalize.min.css" />
+    <Content Include="static\paper.css" />
+    <Content Include="static\PhieuKhamVu.png" />
+    <Content Include="static\PhieuKhamVu2.png" />
+    <Content Include="static\pin.png" />
+    <Content Include="static\pin2.png" />
+    <Content Include="static\print-nofooter.css" />
+    <Content Include="static\print-note.png" />
+    <Content Include="static\print.css" />
+    <Content Include="static\print2.css" />
+    <Content Include="static\record-2.png" />
+    <Content Include="static\record-3.png" />
+    <Content Include="static\record-4.png" />
+    <Content Include="static\record-5.png" />
+    <Content Include="static\record-6.png" />
+    <Content Include="static\record-7.png" />
+    <Content Include="static\service-worker.js" />
+    <Content Include="static\stylePrice.css" />
+    <Content Include="static\thanh_phan_doi_van_chuyen.png" />
+    <Content Include="static\than_kinh.png" />
+    <Content Include="static\tieu_hoa.png" />
+    <Content Include="static\tivi-bg.png" />
+    <Content Include="static\tuan_hoan.png" />
+    <Content Include="static\united-kingdom-flag-icon-32.png" />
+    <Content Include="static\vconfig.js" />
+    <Content Include="static\vietnam-flag-icon-32.png" />
+    <Content Include="static\woman.png" />
+    <Content Include="static\__car194X194.gif" />
+    <Content Include="Views\Account\SignOut.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="applog.txt" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Assets\bootstrap\css\bootstrap-tagsinput.css" />
+    <Content Include="Assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\bootstrap\js\bootstrap-typeahead.min.js" />
+    <Content Include="Assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\css\loginStyle.css" />
+    <Content Include="Assets\css\toastr.min.css" />
+    <Content Include="Assets\font\fontawesome-webfontba72.svg" />
+    <Content Include="Assets\font\footable.svg" />
+    <Content Include="Assets\font\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\font\ionicons290d.svg" />
+    <Content Include="Assets\font\Roboto-Light.svg" />
+    <Content Include="Assets\font\SourceSansPro-Regular.svg" />
+    <Content Include="Assets\js\jquery.min.js" />
+    <Content Include="Assets\lib\textavatar\initial.js" />
+    <Content Include="Assets\lib\textavatar\initial.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Note.txt" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="NLog.config" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Assets\font\fontawesome-webfontba72.eot" />
+    <Content Include="Assets\font\fontawesome-webfontba72.ttf" />
+    <Content Include="Assets\font\fontawesome-webfontba72.woff" />
+    <Content Include="Assets\font\fontawesome-webfontd41d.eot" />
+    <Content Include="Assets\font\footable.eot" />
+    <Content Include="Assets\font\footable.ttf" />
+    <Content Include="Assets\font\footable.woff" />
+    <Content Include="Assets\font\footabled41d.eot" />
+    <Content Include="Assets\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\font\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Assets\font\ionicons290d.eot" />
+    <Content Include="Assets\font\ionicons290d.ttf" />
+    <Content Include="Assets\font\ionicons290d.woff" />
+    <Content Include="Assets\font\Roboto-Black.ttf" />
+    <Content Include="Assets\font\Roboto-BlackItalic.ttf" />
+    <Content Include="Assets\font\Roboto-Bold.ttf" />
+    <Content Include="Assets\font\Roboto-Bold.woff" />
+    <Content Include="Assets\font\Roboto-BoldItalic.ttf" />
+    <Content Include="Assets\font\Roboto-Italic.ttf" />
+    <Content Include="Assets\font\Roboto-Light.eot" />
+    <Content Include="Assets\font\Roboto-Light.ttf" />
+    <Content Include="Assets\font\Roboto-Light.woff" />
+    <Content Include="Assets\font\Roboto-LightItalic.ttf" />
+    <Content Include="Assets\font\Roboto-Medium.ttf" />
+    <Content Include="Assets\font\Roboto-MediumItalic.ttf" />
+    <Content Include="Assets\font\Roboto-Regular.ttf" />
+    <Content Include="Assets\font\Roboto-Regular.woff" />
+    <Content Include="Assets\font\Roboto-Thin.ttf" />
+    <Content Include="Assets\font\Roboto-ThinItalic.ttf" />
+    <Content Include="Assets\font\SourceSansPro-Regular.eot" />
+    <Content Include="Assets\font\SourceSansPro-Regular.otf" />
+    <Content Include="Assets\font\SourceSansPro-Regular.ttf" />
+    <Content Include="Assets\font\SourceSansPro-Regular.woff" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\CheckSercurity.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\Production.pubxml" />
+    <None Include="Properties\PublishProfiles\UAT.pubxml" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="UploadFiles\12dwasae234rfcvdsb1q5435.PNG" />
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Security\svm-pro-asesrv.vingroup.local-Client.pfx" />
+    <Content Include="Security\svm-stag-app01.vingroup.local-client.pfx" />
+    <Content Include="Security\_svm-stag-app01.vingroup.local-client.pfx" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Home\RedirectLogin.cshtml" />
+    <Content Include="Views\Home\CheckLogin.cshtml" />
+    <Content Include="Views\Home\RedircePage.cshtml" />
+    <Content Include="Views\Shared\_SingleSignOut.cshtml" />
+    <Content Include="static\css\app.66b78b659dac2aae8155c903d4c27520.css.map" />
+    <Content Include="static\css\app.d62ecc2ddb02a1d0fb04abb2afee790c.css.map" />
+    <Content Include="static\fonts\fontawesome-webfont.674f50d.eot" />
+    <Content Include="static\fonts\fontawesome-webfont.af7ae50.woff2" />
+    <Content Include="static\fonts\fontawesome-webfont.b06871f.ttf" />
+    <Content Include="static\fonts\fontawesome-webfont.fee66e7.woff" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.448c34a.woff2" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.e18bbf6.ttf" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.f4769f9.eot" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.fa27723.woff" />
+    <Content Include="static\img\jquery-file-upload-scripts.webp" />
+    <Content Include="static\js\0.1572669d101bf25cdc9f.js.map" />
+    <Content Include="static\js\1.923a5221678efb8e08c1.js.map" />
+    <Content Include="static\js\10.2b6509a150358e507072.js.map" />
+    <Content Include="static\js\100.a375d8fd0be006012c04.js.map" />
+    <Content Include="static\js\101.0e3eb06969ef9ee22352.js.map" />
+    <Content Include="static\js\102.12353eacb7ff0225218d.js.map" />
+    <Content Include="static\js\103.e89353a7c779820fa098.js.map" />
+    <Content Include="static\js\104.9caf62cfa76a5d0c21be.js.map" />
+    <Content Include="static\js\105.0a6b59e5fe87adce73eb.js.map" />
+    <Content Include="static\js\106.51984ebdb5a2be082c38.js.map" />
+    <Content Include="static\js\107.60802cc782595bc4a48a.js.map" />
+    <Content Include="static\js\108.4ca458a189a52cc4c94d.js.map" />
+    <Content Include="static\js\109.20dddbef36052cb852c1.js.map" />
+    <Content Include="static\js\11.c2a0dcdb6281f18788d3.js.map" />
+    <Content Include="static\js\110.ec9ccfe228b62f8e1b54.js.map" />
+    <Content Include="static\js\111.853f8913466a247be857.js.map" />
+    <Content Include="static\js\112.b358af8b399804ccf341.js.map" />
+    <Content Include="static\js\113.689f292396d38a66ce88.js.map" />
+    <Content Include="static\js\114.00281226d9a84b4d87f5.js.map" />
+    <Content Include="static\js\115.477e1e750574cb09a6da.js.map" />
+    <Content Include="static\js\116.cee19a81d23713dc6dad.js.map" />
+    <Content Include="static\js\117.5106d59f679c0a2199d4.js.map" />
+    <Content Include="static\js\118.ff5e0c89a5d95f22dce5.js.map" />
+    <Content Include="static\js\119.88ffc241b5e12055bf6c.js.map" />
+    <Content Include="static\js\12.0e365957871994580f3d.js.map" />
+    <Content Include="static\js\120.cea4022a57f53a3cf82a.js.map" />
+    <Content Include="static\js\121.4432840a80360ce301fb.js.map" />
+    <Content Include="static\js\122.75577fef0980837ebdc4.js.map" />
+    <Content Include="static\js\123.b60daf2888f6f757eeaf.js.map" />
+    <Content Include="static\js\124.2f9e3c5a7ce487c5a608.js.map" />
+    <Content Include="static\js\125.e905f740a09b8edb8190.js.map" />
+    <Content Include="static\js\126.42940aafb211ded8946c.js.map" />
+    <Content Include="static\js\127.2d1ce38c5a64b188f381.js.map" />
+    <Content Include="static\js\128.fa9b932e265c22bafda6.js.map" />
+    <Content Include="static\js\129.b44d7e8130e65b64d748.js.map" />
+    <Content Include="static\js\13.a6b488d13b640c14fec7.js.map" />
+    <Content Include="static\js\130.c99809dbbeb1ecd21109.js.map" />
+    <Content Include="static\js\131.a32bf0a90a61a614bbcf.js.map" />
+    <Content Include="static\js\132.8bccca88ddf3f27715f7.js.map" />
+    <Content Include="static\js\133.9af83a6258da720cb4a5.js.map" />
+    <Content Include="static\js\134.bab1e4f003db63cdc267.js.map" />
+    <Content Include="static\js\135.fa2b8aaa99635ccc48d6.js.map" />
+    <Content Include="static\js\136.66e0179e1c20d3891e8e.js.map" />
+    <Content Include="static\js\137.2a13108c315b4c1cb28e.js.map" />
+    <Content Include="static\js\138.bc64bf25f6de6c00bbcc.js.map" />
+    <Content Include="static\js\139.8140888152af52397662.js.map" />
+    <Content Include="static\js\14.4595fb01bd6165939df0.js.map" />
+    <Content Include="static\js\140.744cc942d06427852a0e.js.map" />
+    <Content Include="static\js\141.15ddaed95039386bd0f6.js.map" />
+    <Content Include="static\js\142.2e36d3babccc0cbdbcba.js.map" />
+    <Content Include="static\js\143.2e795971aabf10c5f741.js.map" />
+    <Content Include="static\js\144.e24b9b2ce0047eb19c6a.js.map" />
+    <Content Include="static\js\145.1e2e02e7b9c790c16840.js.map" />
+    <Content Include="static\js\146.0822267a0cc8fdd276cc.js.map" />
+    <Content Include="static\js\147.347891fda5f6f9f9ed4f.js.map" />
+    <Content Include="static\js\148.49c568a76b7e96c7a18a.js.map" />
+    <Content Include="static\js\149.fc4eb987c26b962aa55d.js.map" />
+    <Content Include="static\js\15.fa49e85c2e5df02ea68a.js.map" />
+    <Content Include="static\js\150.2fe7cd549abc3b92f1cb.js.map" />
+    <Content Include="static\js\151.7607d61056137e60d2ae.js.map" />
+    <Content Include="static\js\152.07d6927d2afb565e85a9.js.map" />
+    <Content Include="static\js\153.0181cfd7df141937eb9f.js.map" />
+    <Content Include="static\js\154.0ced8e70e46a92f6a469.js.map" />
+    <Content Include="static\js\16.cbb6d7211ac04e006708.js.map" />
+    <Content Include="static\js\17.847e44366c6c70c114e6.js.map" />
+    <Content Include="static\js\18.9c427766ae1f0961960b.js.map" />
+    <Content Include="static\js\19.67515bb5e738e99f4600.js.map" />
+    <Content Include="static\js\2.88672a3da97ce53eaacd.js.map" />
+    <Content Include="static\js\20.da95ffb595ec71aa2d70.js.map" />
+    <Content Include="static\js\21.532d5fdda8efde934934.js.map" />
+    <Content Include="static\js\22.6db6957ce07fe431086d.js.map" />
+    <Content Include="static\js\23.6851e9cf8c6d299a5ca7.js.map" />
+    <Content Include="static\js\24.0fd0d921b355da8ac5a5.js.map" />
+    <Content Include="static\js\25.2c957fddcbde6ee5fccf.js.map" />
+    <Content Include="static\js\26.66ddbc2a5bb54dedafaf.js.map" />
+    <Content Include="static\js\27.ccc12e3926cda0af8cbb.js.map" />
+    <Content Include="static\js\28.f338c1ae3e55c9ae8a85.js.map" />
+    <Content Include="static\js\29.cd58660d75e7ef236a7d.js.map" />
+    <Content Include="static\js\3.2602fe292dd831c9883a.js.map" />
+    <Content Include="static\js\30.15556108c6530806bfe6.js.map" />
+    <Content Include="static\js\31.7ea78f750dd21138e9da.js.map" />
+    <Content Include="static\js\32.6aff3d3cf2dda37cb6d1.js.map" />
+    <Content Include="static\js\33.239699f1eaa5a1f797e4.js.map" />
+    <Content Include="static\js\34.9dee7b89bb80d17a010b.js.map" />
+    <Content Include="static\js\35.9761f01d9cd3ffa3b893.js.map" />
+    <Content Include="static\js\36.c9a9bae2329000cfcfc5.js.map" />
+    <Content Include="static\js\37.590ea62217a4b84ec663.js.map" />
+    <Content Include="static\js\38.36dd5a1ccb6e473d17fe.js.map" />
+    <Content Include="static\js\39.7c4c8bb6a8130ecf4f55.js.map" />
+    <Content Include="static\js\4.b8c60ed8ae397873b590.js.map" />
+    <Content Include="static\js\40.a9ca0e74147c7ce0e243.js.map" />
+    <Content Include="static\js\41.2ef76973b5864a5b1bc7.js.map" />
+    <Content Include="static\js\42.12676751d8d644fffdec.js.map" />
+    <Content Include="static\js\42.20ba61d59d4e473c165c.js.map" />
+    <Content Include="static\js\43.8029c8c34fca6b1a42d8.js.map" />
+    <Content Include="static\js\44.120e869ea1f4a64de045.js.map" />
+    <Content Include="static\js\45.97c67c186ebe5e695333.js.map" />
+    <Content Include="static\js\46.6308f746305244b6852c.js.map" />
+    <Content Include="static\js\47.9e28241554ce2970b232.js.map" />
+    <Content Include="static\js\48.6c9576b01701c3c728fd.js.map" />
+    <Content Include="static\js\49.a49b19405fef9837b207.js.map" />
+    <Content Include="static\js\5.2621a486f179e5a750fd.js.map" />
+    <Content Include="static\js\50.a066e9dbbc11641da23a.js.map" />
+    <Content Include="static\js\51.585def5b23fdf91db12b.js.map" />
+    <Content Include="static\js\52.d1340c25e94da3e1bc53.js.map" />
+    <Content Include="static\js\53.8c03a26cc443acfe3b15.js.map" />
+    <Content Include="static\js\54.8d4b2eef3a9c967599b7.js.map" />
+    <Content Include="static\js\55.58c95915f0edd6c57896.js.map" />
+    <Content Include="static\js\56.c2cc9673834c9e010ae8.js.map" />
+    <Content Include="static\js\57.e67bafccc48a0267344d.js.map" />
+    <Content Include="static\js\58.3429564120c94e467bcf.js.map" />
+    <Content Include="static\js\59.54708a7d18658ccc0156.js.map" />
+    <Content Include="static\js\6.473118af95c46ecd5895.js.map" />
+    <Content Include="static\js\60.0e60bc95c84397980a11.js.map" />
+    <Content Include="static\js\61.2e5981eafbfc473b3d68.js.map" />
+    <Content Include="static\js\62.3d8e00bf4ac862bcd791.js.map" />
+    <Content Include="static\js\63.67a2e2a1f574f298d891.js.map" />
+    <Content Include="static\js\64.12360cb2a302f44fa3ec.js.map" />
+    <Content Include="static\js\65.c0a212bc7248202d325e.js.map" />
+    <Content Include="static\js\66.044c42e92a2ce30f781a.js.map" />
+    <Content Include="static\js\67.503c568ad2bd6e0f5de2.js.map" />
+    <Content Include="static\js\68.5e2555298d22b627ec9c.js.map" />
+    <Content Include="static\js\69.93faf324c63cb53e0ec9.js.map" />
+    <Content Include="static\js\7.08fe986222c8cb4d7645.js.map" />
+    <Content Include="static\js\70.43b6e592d7c8f04bf15a.js.map" />
+    <Content Include="static\js\71.d387df1ef12b60519a1b.js.map" />
+    <Content Include="static\js\72.eb6405b6a2d78eb9a37f.js.map" />
+    <Content Include="static\js\73.8822626ec6a236c7dbbc.js.map" />
+    <Content Include="static\js\74.1c78430ad8d0eefaf039.js.map" />
+    <Content Include="static\js\75.19e63c1bdc59c8b361d5.js.map" />
+    <Content Include="static\js\76.2d6686ce541947fd75fe.js.map" />
+    <Content Include="static\js\77.bc32b76325e8079e5c48.js.map" />
+    <Content Include="static\js\78.634c2c8aa3d106a711d4.js.map" />
+    <Content Include="static\js\79.767637cb6194ab65a181.js.map" />
+    <Content Include="static\js\8.d4fa4a766ccb6a383d0a.js.map" />
+    <Content Include="static\js\80.38b8a1633823a4c6dc3f.js.map" />
+    <Content Include="static\js\81.ba321210dd0a975915e1.js.map" />
+    <Content Include="static\js\82.764b11b3beb73d9a70fe.js.map" />
+    <Content Include="static\js\83.68f8af132767c8669894.js.map" />
+    <Content Include="static\js\84.3f62659d30fad5718f1f.js.map" />
+    <Content Include="static\js\85.93d2e2d5bbf6c40b3849.js.map" />
+    <Content Include="static\js\86.85eed7f2419aa113b6f3.js.map" />
+    <Content Include="static\js\87.3a69430c3e7ea7bc893a.js.map" />
+    <Content Include="static\js\88.b2431f9fdd6e48ae0aa2.js.map" />
+    <Content Include="static\js\89.05ea04648597e8a3b50f.js.map" />
+    <Content Include="static\js\9.ebd4583c1aa1d7dc406e.js.map" />
+    <Content Include="static\js\90.4179c948d9dcb368c844.js.map" />
+    <Content Include="static\js\91.767e4f80b9e13628e304.js.map" />
+    <Content Include="static\js\92.5a391066af54d528d4c5.js.map" />
+    <Content Include="static\js\93.61d83ae8c7dafd091dbd.js.map" />
+    <Content Include="static\js\94.8f089ff379e3640919f9.js.map" />
+    <Content Include="static\js\95.fe5ab315035298c865dc.js.map" />
+    <Content Include="static\js\96.c8cf6bce35c3f94a86aa.js.map" />
+    <Content Include="static\js\97.ef6efe738ae88dafde34.js.map" />
+    <Content Include="static\js\98.05468b36f853730934e9.js.map" />
+    <Content Include="static\js\99.6be477c3f5b4d40b2c55.js.map" />
+    <Content Include="static\js\app.033edbfe57c99193848b.js.map" />
+    <Content Include="static\js\app.64fec1af346239472d20.js.map" />
+    <Content Include="static\js\manifest.8cb82a4620d07c4f2afc.js.map" />
+    <Content Include="static\js\manifest.b886d696e55c68865ddf.js.map" />
+    <Content Include="static\js\vendor.626e9e8b2aac074ad338.js.map" />
+    <Content Include="static\siteConfig.json" />
+    <Content Include="Views\Authen\RedirectLogin.cshtml" />
+    <Content Include="Views\Account\SingleSignOut.cshtml" />
+    <Content Include="Views\Authen\Login.cshtml" />
+    <Content Include="Views\Authen\Error.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="__index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Logs\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\EIOForm\" />
+    <Folder Include="Views\EOCHandOverCheckList\" />
+    <Folder Include="Views\EOCOutpatientExaminationNote\" />
+    <Folder Include="Views\InitialAssessmentForShortTerm\" />
+    <Folder Include="Views\IPDSurgeryCertificate\" />
+    <Folder Include="Views\IPDTakeCareOfPatientsWithCovid19\" />
+    <Folder Include="Views\MedicationHistory\" />
+    <Folder Include="Views\ProcedureSummaryV2Controller\" />
+    <Folder Include="Views\SurgeryAndProcedureSummaryV3\" />
+    <Folder Include="Views\SyncResultOfParaclinical\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bussiness\Bussiness\Bussiness.csproj">
+      <Project>{8e9e4b77-48a7-45ef-a96c-2b0bb7582cae}</Project>
+      <Name>Bussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{a6540cb6-4845-4673-81a3-f6e50a9f2e3a}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataAccess\DataAccess\DataAccess.csproj">
+      <Project>{cf4e8c47-95b5-43e6-a3ea-422265b61961}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55787</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44320/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44320/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:55787/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

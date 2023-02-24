@@ -1,0 +1,933 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{338B0702-8881-41C1-BDD3-674CB81AB05E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EForm</RootNamespace>
+    <AssemblyName>EForm</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44363</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching, Version=2.16.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnyimMemcached.2.16.0\lib\net35\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.40.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlAgilityPack.1.11.40\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.13\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.8.5\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.8.5\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Http.6.0.0\lib\net461\Microsoft.Extensions.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.6.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Options.6.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Cors.4.2.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.4.2.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.4.2.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.4.2.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.4.2.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MiniProfiler.4.2.22\lib\net461\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler.Shared, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MiniProfiler.Shared.4.2.22\lib\net461\MiniProfiler.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.4.7.13\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Pipelines.Sockets.Unofficial.2.2.2\lib\net461\Pipelines.Sockets.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.4.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\StackExchange.Redis.2.2.88\lib\net461\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.PerformanceCounter.6.0.0\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Pipelines.6.0.1\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Spatial.5.8.5\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Channels.6.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Owin.5.2.7\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Authentication\CSRFCheck.cs" />
+    <Compile Include="Authentication\Permission.cs" />
+    <Compile Include="Authentication\Recaptcha.cs" />
+    <Compile Include="AutoMapper\AutoMapperProfile.cs" />
+    <Compile Include="Cached\RedisConnectorHelper.cs" />
+    <Compile Include="Client\HISClient.cs" />
+    <Compile Include="Common\CSRFToken.cs" />
+    <Compile Include="Common\CustomDES.cs" />
+    <Compile Include="Authentication\SessionAuthorize.cs" />
+    <Compile Include="Common\Constant.cs" />
+    <Compile Include="Client\EHosClient.cs" />
+    <Compile Include="Client\OHClient.cs" />
+    <Compile Include="Common\CustomLog.cs" />
+    <Compile Include="Common\DatetimeFormat.cs" />
+    <Compile Include="Common\Message.cs" />
+    <Compile Include="Common\Validator.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOCareNoteController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPhysicianNoteController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEOCApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEDApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOAssessmentForRetailServicePatientController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOBloodRequestSupplyAndConfirmationController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOBloodTransfusionChecklistController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOCardiacArrestRecordController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOExternalTransportationAssessmentController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOHandOverCheckListController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOJointConsultationForApprovalOfSurgeryController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOMortalityReportController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPatientOwnMedicationsChartController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOProcedureSummaryController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOSkinTestResultController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOSpongeSharpsAndInstrumentsCountsSheetController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOStandingOrderForRetailServiceController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOSurgicalProcedureSafetyChecklistController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseEIOControllers\EIOPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseIPDApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseMedicalRecodeApiController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseOPDApiController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\DoctorPlaceDiagnosticsOrderController.cs" />
+    <Compile Include="Controllers\EDControllers\EDAssessmentForReatailServiceController.cs" />
+    <Compile Include="Controllers\EDControllers\EDCareNoteController.cs" />
+    <Compile Include="Controllers\EDControllers\EDConsentForTransfusionOfBloodController.cs" />
+    <Compile Include="Controllers\EDControllers\EDHIVTestingConsentController.cs" />
+    <Compile Include="Controllers\EDControllers\EDFallRickScreenningController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPhysicianNoteController.cs" />
+    <Compile Include="Controllers\EDControllers\EDConsentForOperationOrrProcedureController.cs" />
+    <Compile Include="Controllers\EDControllers\EDRequestNoCardiopulmonaryResuscitationController.cs" />
+    <Compile Include="Controllers\EDControllers\EDSurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\EDControllers\EDProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\EDControllers\EDSelfHarmRiskScreeningToolController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIOConfirmFormsController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIOContraintNewbornAndPregnantWomanController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIORequestNoCardiopulmonaryResuscitationController.cs" />
+    <Compile Include="Controllers\EIOControllers\EIOAllFormController.cs" />
+    <Compile Include="Controllers\EIOControllers\EMRFormController.cs" />
+    <Compile Include="Controllers\EIOControllers\PreAnesthesiaConsultationController.cs" />
+    <Compile Include="Controllers\EIOControllers\MasterTableController.cs" />
+    <Compile Include="Controllers\EIOControllers\SynMasterTableController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCHIVTestingConsentController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCConsentForOperationOrrProcedureController.cs" />
+    <Compile Include="Controllers\ESignControllers\ESignController.cs" />
+    <Compile Include="Controllers\GeneralControllers\SuportAdminController.cs" />
+    <Compile Include="Controllers\GeneralControllers\EMRCKSController.cs" />
+    <Compile Include="Controllers\GeneralControllers\PROMForCoronaryDiseaseController.cs" />
+    <Compile Include="Controllers\EIOControllers\ProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\EIOControllers\SurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCObservationChartController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCSurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCSkinTestResultController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCCardiacArrestRecordController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCHandOverCheckListController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCInitialAssessmentForOnGoingController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCFallRiskScreeningController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCInitialAssessmentForShortTermController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCOutpatientExaminationNoteController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCDocumentController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCProcedureSumarryController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCStandingOrderController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCSurgicalProcedureSafetyChecklistController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCSpongeSharpsAndInstrumentsCountsSheetsController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\GeneralControllers\CustomerController.cs" />
+    <Compile Include="Controllers\GeneralControllers\DietCodeController.cs" />
+    <Compile Include="Controllers\GeneralControllers\OHMedicationHistoryController.cs" />
+    <Compile Include="Controllers\GeneralControllers\PROMForheartFailureController.cs" />
+    <Compile Include="Controllers\GeneralControllers\StillBirthController.cs" />
+    <Compile Include="Controllers\GeneralControllers\TableDatasController.cs" />
+    <Compile Include="Controllers\IPDControllers\BradenScaleController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDConfirmDischargeWithoutDirectController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDConsentForTransfusionOfBloodController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDHIVTestingConsentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDConsultationDrugWithAnAsteriskMarkController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDDischargePreparationChecklistController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDExternalTransportationAssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDFallRiskAssessmentForPedatricController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDGlamorganController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInitialAssessmentForNeonatalMaternityController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInitialAssessmentForNewbornsController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInitialAssessmentForUterineLifeTowHoursController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInjuryCertificateController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDCoronaryInterventionController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordExtenstionController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicationHistoryForChildController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMonitoringSheetForPatientsWithExtravasationOfCancerDrugsController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMortalityReportController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDNeonatalObservationChartController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPainRecordController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPointOfCareTestingController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPPROMForCoronaryDiseaseController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDConsentForOperationOrrProcedureController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPROMForheartFailureController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDRequestNoCardiopulmonaryResuscitationController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDScaleForAssessmentOfSuicideIntentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSetupMedicalRecordController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSpongeSharpsAndInstrumentsCountsSheetsController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDBloodRequestSupplyAndConfirmationController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDBloodTransfusionChecklistController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPatientOwnMedicationsChartControllerController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDCareNoteController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordPart3Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordPart2Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordPart1Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDObservationChartController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPhysicianNoteController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDStandingOrderController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSumOf15DayTreatmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSurgeryCertificateV3Controller.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSurgeryCertificateController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDSurgicalProcedureSafetyChecklistController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDTakeCareOfPatientsWithCovid19RecommentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDTakeCareOfPatientsWithCovid19AssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicationHistoryController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDTakePlacentaController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDThrombosisRiskFactorAssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDThrombosisRiskFactorAssessmentForGeneralSurgeryPatientController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDVerbalOrderFormController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDVitalSignForPediatricController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDNoteDisChargeController.cs" />
+    <Compile Include="Controllers\IPDControllers\VitalSignForAdultController.cs" />
+    <Compile Include="Controllers\IPDControllers\VitalSignsForPregnantWomanController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\EOCMedicalRecordController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\MedicalRecordAlliedServiceController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\MedicalRecordRadiologyHistoryController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\MohFinalReportController.cs" />
+    <Compile Include="Controllers\MedicationAdministrationRecordControllers\MedicationAdministrationRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDJointConsultationForApprovalOfSurgeryController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDHIVTestingConsentController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPregnancyFollowUpRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPPROMForCoronaryDiseaseController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDClinicalBreastExamNoteController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDGENBRCAController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDDiseasesCertificationController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDNCCNBROV1Controller.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPROMForheartFailureController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDConsentForOperationOrrProcedureController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSurgeryAndProcedureSummaryV3Controller.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDProcedureSummaryV2Controller.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDRiskAssessmentForCancerController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSurgeryRespiratoryAndSurgeryCardiologyController.cs" />
+    <Compile Include="Controllers\PathologyMicrobiologyFormController.cs" />
+    <Compile Include="Controllers\PrescriptionControllers\PrescriptionController.cs" />
+    <Compile Include="Controllers\DiagnosticReportingController.cs" />
+    <Compile Include="Controllers\PublicApiController.cs" />
+    <Compile Include="Helper\NoLockExt.cs" />
+    <Compile Include="Models\EDModels\InfoCartridgeCG4Model.cs" />
+    <Compile Include="Models\FileCKSModel.cs" />
+    <Compile Include="Models\DataHCModel.cs" />
+    <Compile Include="Models\DetailPharmacyModel.cs" />
+    <Compile Include="Models\DiagnosticReporting\DiagnosticReportingParameterModel.cs" />
+    <Compile Include="Models\DietCodeParameterModel.cs" />
+    <Compile Include="Models\EIOFormConfirmModel.cs" />
+    <Compile Include="Models\EIOModels\EIOExternalTransportationAssessmentItemModel.cs" />
+    <Compile Include="Models\EIOModels\EIOJointConsultationForApprovalOfSurgeryResponse.cs" />
+    <Compile Include="Models\FormDataValue.cs" />
+    <Compile Include="Models\HISServiceModel.cs" />
+    <Compile Include="Models\IpdDoctor.cs" />
+    <Compile Include="Models\IPDModels\DiagnosisModel.cs" />
+    <Compile Include="Models\IPDModels\IPDThrombosisRiskFactorAssessmentParams.cs" />
+    <Compile Include="Models\IPDModels\MEWItemModel.cs" />
+    <Compile Include="Models\IPDModels\VitalSignsForPregnantWomanParams.cs" />
+    <Compile Include="Models\MappingData.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\Age.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\CustomerMedicationInfoModel.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\DependentProfileModel.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\MedicationGroupByVisitCode.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\IPDPrescriptionModel.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\MedicationInfoModel.cs" />
+    <Compile Include="Models\MedicationAdministrationRecordModels\MommyAndBabyProfile.cs" />
+    <Compile Include="Models\OrdersOutput.cs" />
+    <Compile Include="Models\OrdersRequest.cs" />
+    <Compile Include="Models\OrdersResponse.cs" />
+    <Compile Include="Models\PrescriptionModel.cs" />
+    <Compile Include="Models\PrescriptionModels\AssessmentModel.cs" />
+    <Compile Include="Models\PrescriptionModels\DataFromViHCModel.cs" />
+    <Compile Include="Models\PrescriptionModels\PrescriptionVisitModel.cs" />
+    <Compile Include="Models\PrescriptionModels\UserConfirmModel.cs" />
+    <Compile Include="Models\ServicesParameterModel.cs" />
+    <Compile Include="Models\PrescriptionModels\VisitMedicalInfo.cs" />
+    <Compile Include="Models\ValidateCustomInHospital.cs" />
+    <Compile Include="Controllers\EDControllers\EDProcedureSummaryController.cs" />
+    <Compile Include="Controllers\EIOControllers\HighlyRestrictedAntimicrobialConsultController.cs" />
+    <Compile Include="Controllers\EIOControllers\TestApiController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCCustomerController.cs" />
+    <Compile Include="Controllers\EOCControllers\EOCController.cs" />
+    <Compile Include="Controllers\GeneralControllers\OHProblemListController.cs" />
+    <Compile Include="Controllers\GeneralControllers\SyncResultOfParaclinicalController.cs" />
+    <Compile Include="Controllers\GeneralControllers\TestCovidController.cs" />
+    <Compile Include="Controllers\GeneralControllers\UnlockFormController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDDocumentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDGuggingSwallowingScreenController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDJointConsultationForApprovalOfSurgeryController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDMedicalRecordController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDProcedureSummaryController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\IPDMRMedicalRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDAssessmentForRetailServicePatientController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDObservationChartController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSkinTestResultController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSpongeSharpsAndInstrumentsCountsSheetsController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDStandingOrderForRetailServiceController.cs" />
+    <Compile Include="Models\EOCModel\EOCTranfers.cs" />
+    <Compile Include="Models\IPDModels\MedicalReportDataModels.cs" />
+    <Compile Include="Models\IPDModels\TransferInfoModel.cs" />
+    <Compile Include="Models\VitalSignsForPregnantWomanItem.cs" />
+    <Compile Include="ScheduleJobs\NotifyAPIGWService.cs" />
+    <Compile Include="Services\OHRadiologyServiceReport.cs" />
+    <Compile Include="Services\OHServiceDoctor.cs" />
+    <Compile Include="Services\OHService.cs" />
+    <Compile Include="Services\OHServiceDoctor.cs" />
+    <Compile Include="Utils\ChronicUtil.cs" />
+    <Compile Include="Utils\ClinicalExaminationAndFindings.cs" />
+    <Compile Include="Utils\ClosestVisitIn24H.cs" />
+    <Compile Include="Utils\CustomerUtil.cs" />
+    <Compile Include="Utils\Diagnosis.cs" />
+    <Compile Include="Utils\Email.cs" />
+    <Compile Include="Utils\EmergencyRecordAssessment.cs" />
+    <Compile Include="Utils\ICDConvert.cs" />
+    <Compile Include="Utils\ICDUtil.cs" />
+    <Compile Include="Utils\IPDMedicalRecordAssessment.cs" />
+    <Compile Include="Utils\IPDTransfer.cs" />
+    <Compile Include="Utils\NotificationCreator.cs" />
+    <Compile Include="Utils\InHospital.cs" />
+    <Compile Include="Utils\RTFDecoder.cs" />
+    <Compile Include="Utils\TranslationUtil.cs" />
+    <Compile Include="Utils\VisitAllergy.cs" />
+    <Compile Include="Utils\VisitCreater.cs" />
+    <Compile Include="Controllers\EDControllers\EDAmbulanceRunReportController.cs" />
+    <Compile Include="Controllers\EDControllers\EDBloodTransfusionChecklistController.cs" />
+    <Compile Include="Controllers\EDControllers\EDCardiacArrestRecordController.cs" />
+    <Compile Include="Controllers\EDControllers\EDExternalTransportationAssessmentController.cs" />
+    <Compile Include="Controllers\EDControllers\EDMortalityReportController.cs" />
+    <Compile Include="Controllers\EDControllers\EDInjuryCertificateController.cs" />
+    <Compile Include="Controllers\EDControllers\EDJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\EDControllers\EDAssessmentForRetailServicePatientController.cs" />
+    <Compile Include="Controllers\EDControllers\EDConsultationDrugWithAnAsteriskMarkController.cs" />
+    <Compile Include="Controllers\EDControllers\EDJointConsultationForApprovalOfSurgeryController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientManagementController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientOwnMedicationsChartController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPointOfCareTestingController.cs" />
+    <Compile Include="Controllers\EDControllers\EDSkinTestResultController.cs" />
+    <Compile Include="Controllers\EDControllers\EDStandingOrderController.cs" />
+    <Compile Include="Controllers\EDControllers\EDStandingOrderForRetailServiceController.cs" />
+    <Compile Include="Controllers\CustomerInfoControllers\AllergyController.cs" />
+    <Compile Include="Controllers\EDControllers\EDBloodRequestSupplyAndConfirmationController.cs" />
+    <Compile Include="Controllers\EDControllers\EDSyncVisitHistoryController.cs" />
+    <Compile Include="Controllers\EDControllers\EDHumanResourceAssessmentController.cs" />
+    <Compile Include="Controllers\GeneralControllers\ClinicController.cs" />
+    <Compile Include="Controllers\CustomerInfoControllers\ComplexOutpatientCaseSummaryController.cs" />
+    <Compile Include="Controllers\CustomerInfoControllers\HeightAndWeightController.cs" />
+    <Compile Include="Controllers\GeneralControllers\MedicationMasterdataController.cs" />
+    <Compile Include="Controllers\GeneralControllers\NotificationController.cs" />
+    <Compile Include="Controllers\GeneralControllers\PatientMedicationListController.cs" />
+    <Compile Include="Controllers\IPDControllers\CustomerIPDController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDCardiacArrestRecordControllerController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDFallRiskAssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDHandOverCheckListController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDInitialAssessmentController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\IPDControllers\IPDPlanOfCareController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\EDMedicalRecordController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\MedicalRecordController.cs" />
+    <Compile Include="Controllers\EDControllers\CustomerDetailController.cs" />
+    <Compile Include="Controllers\EDControllers\EDDischargeInformationController.cs" />
+    <Compile Include="Controllers\EDControllers\EDController.cs" />
+    <Compile Include="Controllers\EDControllers\CustomersEDController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientAndFamilyEducationController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientMedicationListController.cs" />
+    <Compile Include="Controllers\EDControllers\EDVitalSignController.cs" />
+    <Compile Include="Controllers\GeneralControllers\EDStatusController.cs" />
+    <Compile Include="Controllers\EDControllers\EDEmergencyTriageRecordsController.cs" />
+    <Compile Include="Controllers\EDControllers\EDHandOverCheckListController.cs" />
+    <Compile Include="Controllers\GeneralControllers\HISCustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\GeneralControllers\AccountController.cs" />
+    <Compile Include="Controllers\EDControllers\EDEmergencyRecordsController.cs" />
+    <Compile Include="Controllers\GeneralControllers\ICD10Controller.cs" />
+    <Compile Include="Controllers\GeneralControllers\LogController.cs" />
+    <Compile Include="Controllers\GeneralControllers\MasterDatasController.cs" />
+    <Compile Include="Controllers\EDControllers\EDMonitoringChartAndHandoverFormsController.cs" />
+    <Compile Include="Controllers\EDControllers\EDObservationChartController.cs" />
+    <Compile Include="Controllers\EDControllers\EDDocumentController.cs" />
+    <Compile Include="Controllers\EDControllers\EDOrderController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\EDControllers\EDPreOperativeProcedureHandoverChecklistsController.cs" />
+    <Compile Include="Controllers\MedicalRecordControllers\OPDMedicalRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\CustomerOPDController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDCardiacArrestRecordController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDDocumentController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDHandOverCheckListController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDInitialAssessmentController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDJointConsultationGroupMinutesController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPatientMedicationListController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDOutpatientExaminationNoteController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDPatientProgressNoteController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDStandingOrderController.cs" />
+    <Compile Include="Controllers\GeneralControllers\RoomsController.cs" />
+    <Compile Include="Controllers\GeneralControllers\SitesController.cs" />
+    <Compile Include="Controllers\EDControllers\EDSpongeSharpsAndInstrumentsCountsSheetsController.cs" />
+    <Compile Include="Controllers\GeneralControllers\SpecialtyController.cs" />
+    <Compile Include="Controllers\GeneralControllers\StandingOrderMasterDataController.cs" />
+    <Compile Include="Controllers\GeneralControllers\FileController.cs" />
+    <Compile Include="Controllers\GeneralControllers\UsersController.cs" />
+    <Compile Include="Controllers\GeneralControllers\VisitTypeGroupController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDProcedureSumarryController.cs" />
+    <Compile Include="Controllers\OPDControllers\OPDSurgicalProcedureSafetyChecklistController.cs" />
+    <Compile Include="Controllers\TranslationControllers\TranslationController.cs" />
+    <Compile Include="Controllers\TranslationControllers\TranslationMedicalReportController.cs" />
+    <Compile Include="Filters\CustomModifyingErrorMessageDelegatingHandler.cs" />
+    <Compile Include="Filters\CustomExceptionFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ActiveDirectoryHelper.cs" />
+    <Compile Include="Cached\CachedLoginFailed.cs" />
+    <Compile Include="Cached\CachedSession.cs" />
+    <Compile Include="Middlewares\LogChangeMiddleware.cs" />
+    <Compile Include="Models\ADUserDetailModel.cs" />
+    <Compile Include="Models\ComplexOutpatientCaseSummaryParameterModel.cs" />
+    <Compile Include="Models\CustomerEDParameterModel.cs" />
+    <Compile Include="Models\CustomerManualUpdateParameterModel.cs" />
+    <Compile Include="Models\EDModels\EDParameterModel.cs" />
+    <Compile Include="Models\EDModels\EDQueryModel.cs" />
+    <Compile Include="Models\EIOModels\EIOBloodRequestSupplyAndConfirmationModel.cs" />
+    <Compile Include="Models\EIOModels\EIOCardiacArrestRecordTableModel.cs" />
+    <Compile Include="Models\EIOModels\EIOSurgicalProcedureSafetyChecklistDataModel.cs" />
+    <Compile Include="Models\HandOverCheckListModel.cs" />
+    <Compile Include="Models\HISCustomerParameterModel.cs" />
+    <Compile Include="Models\HumanResourceQueryModel.cs" />
+    <Compile Include="Models\ICD10ParameterModel.cs" />
+    <Compile Include="Models\IPDModels\IPDIAMasterData.cs" />
+    <Compile Include="Models\IPDModels\IPDIASpecialRequestModel.cs" />
+    <Compile Include="Models\IPDModels\IPDParameterModel.cs" />
+    <Compile Include="Models\IPDModels\IPDQueryModel.cs" />
+    <Compile Include="Models\LabResultModel.cs" />
+    <Compile Include="Models\LoginParameterModel.cs" />
+    <Compile Include="Models\LogParameterModel.cs" />
+    <Compile Include="Models\EDModels\ObservationChartParameterModel.cs" />
+    <Compile Include="Models\MedicalRecordModels\MedicalRecordViewModel.cs" />
+    <Compile Include="Models\MedicationMasterdataModel.cs" />
+    <Compile Include="Models\NotificationModel.cs" />
+    <Compile Include="Models\OPDModels\OPDParameterModel.cs" />
+    <Compile Include="Models\OPDModels\OPDQueryModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\PagingParameterModel.cs" />
+    <Compile Include="Models\EDModels\PatientHandOverRecordParameterModel.cs" />
+    <Compile Include="Models\EDModels\PatientProgressNoteParamModel.cs" />
+    <Compile Include="Models\PatientManagementModel.cs" />
+    <Compile Include="Models\PatientMedicationListModel.cs" />
+    <Compile Include="Models\SiteSpecialtyModel.cs" />
+    <Compile Include="Models\SpecialtyParameterModel.cs" />
+    <Compile Include="Models\StatusModel.cs" />
+    <Compile Include="Models\TranslateModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\AuthorizationServerProvider.cs" />
+    <Compile Include="Provider\UserRepo.cs" />
+    <Compile Include="ScheduleJobs\ClearUnuseLog.cs" />
+    <Compile Include="ScheduleJobs\JobScheduler.cs" />
+    <Compile Include="ScheduleJobs\NotifyBlock24h.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utils\VisitHistory.cs" />
+    <Compile Include="Utils\VisitStatus.cs" />
+    <Compile Include="Utils\VisitTransfer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="applog.txt" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Clients.EsignService.responseReturn.datasource" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Note.txt" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="NLog.config" />
+    <Content Include="Documents\A01_084_100822_V.docx" />
+    <Content Include="Documents\A01_170_050919_V.docx" />
+    <Content Include="Documents\A03_041_080322_V.docx" />
+    <Content Include="Documents\ED_ A01_057_050919_VE.docx" />
+    <Content Include="Documents\ED_A01_143_290922_VE.docx" />
+    <Content Include="Documents\ED_A01_144_050919_VE.docx" />
+    <Content Include="Documents\ED_A01_145_050919_VE.docx" />
+    <Content Include="Documents\ED_A01_167_180220_VE.docx" />
+    <Content Include="Documents\ED_IPD_A01_155_050919_V.docx" />
+    <Content Include="Documents\ED_IPD_A03_040_080322_V.docx" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\CheckSercurity.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\Production.pubxml" />
+    <None Include="Properties\PublishProfiles\UAT.pubxml" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Tmp\note.txt" />
+    <Content Include="UploadFiles\12dwasae234rfcvdsb1q5435.PNG" />
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Security\svm-pro-asesrv.vingroup.local-Client.pfx" />
+    <Content Include="Security\svm-stag-app01.vingroup.local-client.pfx" />
+    <Content Include="Security\_svm-stag-app01.vingroup.local-client.pfx" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="__index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Logs\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="Views\Doctor\" />
+    <Folder Include="Views\EIOForm\" />
+    <Folder Include="Views\EOCHandOverCheckList\" />
+    <Folder Include="Views\EOCOutpatientExaminationNote\" />
+    <Folder Include="Views\ESign\" />
+    <Folder Include="Views\InitialAssessmentForShortTerm\" />
+    <Folder Include="Views\IPDSurgeryCertificate\" />
+    <Folder Include="Views\IPDTakeCareOfPatientsWithCovid19\" />
+    <Folder Include="Views\MedicationHistory\" />
+    <Folder Include="Views\MohFinalReport\" />
+    <Folder Include="Views\ProcedureSummaryV2Controller\" />
+    <Folder Include="Views\SurgeryAndProcedureSummaryV3\" />
+    <Folder Include="Views\SyncResultOfParaclinical\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bussiness\Bussiness\Bussiness.csproj">
+      <Project>{8e9e4b77-48a7-45ef-a96c-2b0bb7582cae}</Project>
+      <Name>Bussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Clients\Clients.csproj">
+      <Project>{5C70B449-483C-484C-8585-6B53C1C44C12}</Project>
+      <Name>Clients</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{A6540CB6-4845-4673-81A3-F6E50A9F2E3A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataAccess\DataAccess\DataAccess.csproj">
+      <Project>{cf4e8c47-95b5-43e6-a3ea-422265b61961}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMRModels\EMRModels.csproj">
+      <Project>{67102cdd-b820-4720-a9fa-fe0f7bce26eb}</Project>
+      <Name>EMRModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Helper\Helper\Helper.csproj">
+      <Project>{3AB5AF97-1B9C-4DE8-812C-A2A1548838CE}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55787</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8899/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:8899/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:55787/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,161 @@
+exec send_message_all @vimes= N'<div>
+  <p><span style="font-size:12.0pt;"><i><strong>Kính gửi: Ban LĐ Bệnh viện (báo cáo),</strong></i></span></p>
+  <p><span style="font-size:12.0pt;"><i><strong>Kính gửi: các Bác sĩ và anh/chị Điều dưỡng (thông báo),</strong></i></span></p>
+  <p><span style="font-size:12.0pt;"><i><strong>Kính gửi: anh/chị các phòng ban ( phth),&nbsp;</strong></i></span></p>
+  <p><span style="font-size:12.0pt;">Bộ phận IT xin được gửi thông báo nâng cấp hệ thống Biểu mẫu điện tử EFORM hiện đang được triển khai tại các khu vực Ngoại trú, Cấp cứu và Nội trú. Nội dung nâng cấp như sau:&nbsp;</span></p>
+  <p><span style="font-size:12.0pt;"> Thời gian nâng cấp và gián đoạn hệ thống : </span><span style="background-color:yellow;font-size:12.0pt;">18h30 - 19h ngày 21/10/2022</span></p>
+  <p><span style="font-size:12.0pt;"><strong>Nội dung nâng cấp:</strong></span></p>
+
+  <h4 style="font-weight: bold">I. Hồ sơ bệnh án:</h4>
+  <p style="padding-left: 10px"><b>1. Luồng ghi chép HSBA trẻ sơ sinh:</b></p>
+  <p style="padding-left: 15px">- <b>Thời điểm áp dụng:</b> Hồ sơ được tiếp nhận sau thời điểm nâng cấp.</p>
+  <p style="padding-left: 15px">- <b>Luồng ghi nhận</b></p>
+    <table class="table table-striped table-bordered v-table bg-1375ba">
+      <thead>
+        <tr>
+          <th style="vertical-align: top;">Trẻ sơ sinh khỏe mạnh</th>
+          <th style="vertical-align: top;">Trẻ sơ sinh bệnh lý</th>
+          <th style="vertical-align: top;">Trẻ sơ sinh từ IPD Sản chuyển khoa IPD Sơ sinh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;">
+            <p>- Về Nội trú Sản theo mẹ</p>
+            <p>- Ghi nhận thông tin trong hồ sơ của mẹ (Không mở hồ sơ cho bé)</p>
+          </td>
+          <td style="vertical-align: top;">
+            <p>- Chuyển Nội trú Sơ sinh/ NICU ngay sau sinh</p>
+            <p>- Mở hồ sơ cho bé</p>
+          </td>
+          <td style="vertical-align: top;">
+            -  Mở hồ sơ cho bé tại Nội trú Sơ sinh
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <p style="padding-left: 15px">- <b>Biểu mẫu</b></p>
+  <p style="padding-left: 20px">+ Nội trú Sản</p>
+  <p style="padding-left: 25px"> &#10003;<i> Bỏ biểu mẫu Đánh giá ban đầu trẻ vừa sinh ( A02_016_050919_VE)</i></p>
+<p style="padding-left: 25px"> &#10003;<i> Thêm mới biểu mẫu Đánh giá ban đầu trẻ vừa sinh ( A01_250_061022_VE)</i></p>
+<p style="padding-left: 25px"> &#10003;<i> Thêm mới biểu mẫu Đánh giá tình trạng trẻ trong 2 giờ sau sinh ( A02_016_061022_VE)</i></p>
+<p style="padding-left: 25px"> &#10003;<i> Phiếu điều trị; Phiếu chăm sóc: Bổ sung ghi nhận cho trẻ sơ sinh trong hồ sơ của mẹ</i></p>
+<p style="padding-left: 25px"> &#10003;<i> Cho phép ghi nhận nhiều trẻ sơ sinh trong hồ sơ của mẹ</i></p>
+
+  <p style="padding-left: 20px">+ Nội trú Sơ sinh</p>
+
+<p style="padding-left: 25px"> &#10003;<i> Thêm mới Đánh giá ban đầu trẻ vừa sinh ( A01_250_061022_VE)</i></p>
+  <p style="padding-left: 10px"><b>2. Thêm mới Phòng khám Gây mê:</b> Bao gồm 4 biểu mẫu</p>
+  <p style="padding-left: 15px">- Đánh giá ban đầu NB ngoại trú thông thường</p>
+<p style="padding-left: 15px">- Phiếu khám gây mê (Mã A03_034_200520_VE)</p>
+<p style="padding-left: 15px">- Phiếu yêu cầu khám chuyên khoa tim mạch tiền phẫu (Mã  A01_204_030320_VE)</p>
+<p style="padding-left: 15px">-Phiếu yêu cầu khám chuyên khoa hô hấp tiền phẫu</p>
+
+<p style="padding-left: 10px"><b>3. Nhóm Bệnh án hội chẩn:</b> </p>
+  <p style="padding-left: 15px">- OPD Sản phụ khoa:</p>
+  <p style="padding-left: 20px">&#10003; <i>Quản lý thai nghén: Thêm mới mã  A01_067_050919_VE</i></p>
+
+<p style="padding-left: 10px"><b>4. Nhóm Phẫu thuật thủ thuật:</b> </p>
+  <p style="padding-left: 15px">- Nội trú Ngoại:</p>
+  <p style="padding-left: 20px">&#10003; <i>Yêu cầu người bệnh chuẩn bị trước khi phẫu thuật thủ thuật: Thêm mới mã  A02_052_050919_V</i></p>
+
+<p style="padding-left: 10px"><b>5. Nhóm Kết quả xét nghiệm:</b> </p>
+  <p style="padding-left: 15px">- Tất cả các khu vực:</p>
+  <p style="padding-left: 20px">&#10003; <i>XNTC - Đông máu: Thêm mới mã  ACT A03_041_080322_V</i></p>
+
+<p style="padding-left: 10px"><b>6. Nhóm Hành chính cam kết:</b> </p>
+  <p style="padding-left: 15px">- Nội trú Sản:</p>
+  <p style="padding-left: 20px">&#10003; <i>Bản cam kết xin lấy bánh rau không theo quy định quản lý của Bệnh viện: Thêm mới mẫu  A01_159_050919_VE</i></p>
+
+<h4 style="font-weight: bold">II. Cải thiện hệ thống trong quá trình vận hành:</h4>
+  <p style="padding-left: 10px"><b>1. Khu vực Ngoại trú:</b> Trang chủ Danh sách bệnh nhân:  Thêm cột Phòng khám</p>
+  <p style="padding-left: 10px"><b>2. Các biểu mẫu Cam kết:</b> Tách version  Tiếng việt , Tiếng anh</p>
+
+
+  <p style="margin-left:1.0in;"><br data-cke-filler="true"></p>
+  <p style="line-break: anywhere;"><span style="font-size:12.0pt;">Anh/chị có thể truy cập đường dẫn sau để xem hướng dẫn sử dụng:&nbsp;</span><a href="https://vingroupjsc.sharepoint.com/sites/DR-VinMec/vmkht/vmcntt/tltk/Forms/Items.aspx?RootFolder=%2Fsites%2FDR%2DVinMec%2Fvmkht%2Fvmcntt%2Ftltk%2Fbieumau%2Ftlhdsd%2Fhdeform&FolderCTID=0x012000C7D06E1583C27D4D87181C7B29A9A99C&View=%7B65FA7BCF%2D5F5E%2D47E6%2D8FC4%2D5D87B2E98534%7D"><span style="color:#6888C9;font-size:12.0pt;"><u>https://vingroupjsc.sharepoint.com/sites/DR-VinMec/vmkht/vmcntt/tltk/Forms/Items.aspx?RootFolder=%2Fsites%2FDR%2DVinMec%2Fvmkht%2Fvmcntt%2Ftltk%2Fbieumau%2Ftlhdsd%2Fhdeform&FolderCTID=0x012000C7D06E1583C27D4D87181C7B29A9A99C&View=%7B65FA7BCF%2D5F5E%2D47E6%2D8FC4%2D5D87B2E98534%7D</u></span></a></p>
+  <p><span style="font-size:12.0pt;"><strong>Trong khoảng thời gian gián đoạn hệ thống trên, mọi người sẽ chạy </strong></span><span style="background-color:yellow;font-size:12.0pt;"><strong>plan B là sử dụng bản giấy thay thế</strong></span><span style="font-size:12.0pt;"><strong>, sau thời gian nâng cấp mọi người nhập lại thông tin lại vào hệ thống EFORM</strong>.</span></p>
+  <p><span style="font-size:12.0pt;"><strong>Lưu ý đối với những bệnh nhân cần trả BCYT trong khoảng thời gian nâng cấp, các bác sĩ cần hoàn thành hồ sơ </strong></span><span style="background-color:yellow;font-size:12.0pt;"><strong>trước 18h30</strong></span><span style="font-size:12.0pt;"><strong> để in và gửi cho bệnh nhân trước khi hệ thống tạm dừng hoạt động.</strong></span></p>
+  <p><span style="font-size:12.0pt;">Nếu cần thêm thông tin hoặc hỗ trợ trực tiếp, Anh/Chị vui lòng gửi lại phản hồi tới </span><a href="mailto:it@vinmec.com"><span style="font-size:12.0pt;">it@vinmec.com</span></a><span style="font-size:12.0pt;"> hoặc IT cơ sở để được giải đáp.</span></p>
+  <p><span style="font-size:12.0pt;">Trân trọng!</span></p>
+</div>', @enmes = N'<div>
+  <p><span style="font-size:12.0pt;"><i><strong>Kính gửi: Ban LĐ Bệnh viện (báo cáo),</strong></i></span></p>
+  <p><span style="font-size:12.0pt;"><i><strong>Kính gửi: các Bác sĩ và anh/chị Điều dưỡng (thông báo),</strong></i></span></p>
+  <p><span style="font-size:12.0pt;"><i><strong>Kính gửi: anh/chị các phòng ban ( phth),&nbsp;</strong></i></span></p>
+  <p><span style="font-size:12.0pt;">Bộ phận IT xin được gửi thông báo nâng cấp hệ thống Biểu mẫu điện tử EFORM hiện đang được triển khai tại các khu vực Ngoại trú, Cấp cứu và Nội trú. Nội dung nâng cấp như sau:&nbsp;</span></p>
+  <p><span style="font-size:12.0pt;"> Thời gian nâng cấp và gián đoạn hệ thống : </span><span style="background-color:yellow;font-size:12.0pt;">18h30 - 19h ngày 21/10/2022</span></p>
+  <p><span style="font-size:12.0pt;"><strong>Nội dung nâng cấp:</strong></span></p>
+
+  <h4 style="font-weight: bold">I. Hồ sơ bệnh án:</h4>
+  <p style="padding-left: 10px"><b>1. Luồng ghi chép HSBA trẻ sơ sinh:</b></p>
+  <p style="padding-left: 15px">- <b>Thời điểm áp dụng:</b> Hồ sơ được tiếp nhận sau thời điểm nâng cấp.</p>
+  <p style="padding-left: 15px">- <b>Luồng ghi nhận</b></p>
+    <table class="table table-striped table-bordered v-table bg-1375ba">
+      <thead>
+        <tr>
+          <th style="vertical-align: top;">Trẻ sơ sinh khỏe mạnh</th>
+          <th style="vertical-align: top;">Trẻ sơ sinh bệnh lý</th>
+          <th style="vertical-align: top;">Trẻ sơ sinh từ IPD Sản chuyển khoa IPD Sơ sinh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;">
+            <p>- Về Nội trú Sản theo mẹ</p>
+            <p>- Ghi nhận thông tin trong hồ sơ của mẹ (Không mở hồ sơ cho bé)</p>
+          </td>
+          <td style="vertical-align: top;">
+            <p>- Chuyển Nội trú Sơ sinh/ NICU ngay sau sinh</p>
+            <p>- Mở hồ sơ cho bé</p>
+          </td>
+          <td style="vertical-align: top;">
+            -  Mở hồ sơ cho bé tại Nội trú Sơ sinh
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <p style="padding-left: 15px">- <b>Biểu mẫu</b></p>
+  <p style="padding-left: 20px">+ Nội trú Sản</p>
+  <p style="padding-left: 25px"> &#10003;<i> Bỏ biểu mẫu Đánh giá ban đầu trẻ vừa sinh ( A02_016_050919_VE)</i></p>
+<p style="padding-left: 25px"> &#10003;<i> Thêm mới biểu mẫu Đánh giá ban đầu trẻ vừa sinh ( A01_250_061022_VE)</i></p>
+<p style="padding-left: 25px"> &#10003;<i> Thêm mới biểu mẫu Đánh giá tình trạng trẻ trong 2 giờ sau sinh ( A02_016_061022_VE)</i></p>
+<p style="padding-left: 25px"> &#10003;<i> Phiếu điều trị; Phiếu chăm sóc: Bổ sung ghi nhận cho trẻ sơ sinh trong hồ sơ của mẹ</i></p>
+<p style="padding-left: 25px"> &#10003;<i> Cho phép ghi nhận nhiều trẻ sơ sinh trong hồ sơ của mẹ</i></p>
+
+  <p style="padding-left: 20px">+ Nội trú Sơ sinh</p>
+
+<p style="padding-left: 25px"> &#10003;<i> Thêm mới Đánh giá ban đầu trẻ vừa sinh ( A01_250_061022_VE)</i></p>
+  <p style="padding-left: 10px"><b>2. Thêm mới Phòng khám Gây mê:</b> Bao gồm 4 biểu mẫu</p>
+  <p style="padding-left: 15px">- Đánh giá ban đầu NB ngoại trú thông thường</p>
+<p style="padding-left: 15px">- Phiếu khám gây mê (Mã A03_034_200520_VE)</p>
+<p style="padding-left: 15px">- Phiếu yêu cầu khám chuyên khoa tim mạch tiền phẫu (Mã  A01_204_030320_VE)</p>
+<p style="padding-left: 15px">-Phiếu yêu cầu khám chuyên khoa hô hấp tiền phẫu</p>
+
+<p style="padding-left: 10px"><b>3. Nhóm Bệnh án hội chẩn:</b> </p>
+  <p style="padding-left: 15px">- OPD Sản phụ khoa:</p>
+  <p style="padding-left: 20px">&#10003; <i>Quản lý thai nghén: Thêm mới mã  A01_067_050919_VE</i></p>
+
+<p style="padding-left: 10px"><b>4. Nhóm Phẫu thuật thủ thuật:</b> </p>
+  <p style="padding-left: 15px">- Nội trú Ngoại:</p>
+  <p style="padding-left: 20px">&#10003; <i>Yêu cầu người bệnh chuẩn bị trước khi phẫu thuật thủ thuật: Thêm mới mã  A02_052_050919_V</i></p>
+
+<p style="padding-left: 10px"><b>5. Nhóm Kết quả xét nghiệm:</b> </p>
+  <p style="padding-left: 15px">- Tất cả các khu vực:</p>
+  <p style="padding-left: 20px">&#10003; <i>XNTC - Đông máu: Thêm mới mã  ACT A03_041_080322_V</i></p>
+
+<p style="padding-left: 10px"><b>6. Nhóm Hành chính cam kết:</b> </p>
+  <p style="padding-left: 15px">- Nội trú Sản:</p>
+  <p style="padding-left: 20px">&#10003; <i>Bản cam kết xin lấy bánh rau không theo quy định quản lý của Bệnh viện: Thêm mới mẫu  A01_159_050919_VE</i></p>
+
+<h4 style="font-weight: bold">II. Cải thiện hệ thống trong quá trình vận hành:</h4>
+  <p style="padding-left: 10px"><b>1. Khu vực Ngoại trú:</b> Trang chủ Danh sách bệnh nhân:  Thêm cột Phòng khám</p>
+  <p style="padding-left: 10px"><b>2. Các biểu mẫu Cam kết:</b> Tách version  Tiếng việt , Tiếng anh</p>
+
+
+  <p style="margin-left:1.0in;"><br data-cke-filler="true"></p>
+  <p style="line-break: anywhere;"><span style="font-size:12.0pt;">Anh/chị có thể truy cập đường dẫn sau để xem hướng dẫn sử dụng:&nbsp;</span><a href="https://vingroupjsc.sharepoint.com/sites/DR-VinMec/vmkht/vmcntt/tltk/Forms/Items.aspx?RootFolder=%2Fsites%2FDR%2DVinMec%2Fvmkht%2Fvmcntt%2Ftltk%2Fbieumau%2Ftlhdsd%2Fhdeform&FolderCTID=0x012000C7D06E1583C27D4D87181C7B29A9A99C&View=%7B65FA7BCF%2D5F5E%2D47E6%2D8FC4%2D5D87B2E98534%7D"><span style="color:#6888C9;font-size:12.0pt;"><u>https://vingroupjsc.sharepoint.com/sites/DR-VinMec/vmkht/vmcntt/tltk/Forms/Items.aspx?RootFolder=%2Fsites%2FDR%2DVinMec%2Fvmkht%2Fvmcntt%2Ftltk%2Fbieumau%2Ftlhdsd%2Fhdeform&FolderCTID=0x012000C7D06E1583C27D4D87181C7B29A9A99C&View=%7B65FA7BCF%2D5F5E%2D47E6%2D8FC4%2D5D87B2E98534%7D</u></span></a></p>
+  <p><span style="font-size:12.0pt;"><strong>Trong khoảng thời gian gián đoạn hệ thống trên, mọi người sẽ chạy </strong></span><span style="background-color:yellow;font-size:12.0pt;"><strong>plan B là sử dụng bản giấy thay thế</strong></span><span style="font-size:12.0pt;"><strong>, sau thời gian nâng cấp mọi người nhập lại thông tin lại vào hệ thống EFORM</strong>.</span></p>
+  <p><span style="font-size:12.0pt;"><strong>Lưu ý đối với những bệnh nhân cần trả BCYT trong khoảng thời gian nâng cấp, các bác sĩ cần hoàn thành hồ sơ </strong></span><span style="background-color:yellow;font-size:12.0pt;"><strong>trước 18h30</strong></span><span style="font-size:12.0pt;"><strong> để in và gửi cho bệnh nhân trước khi hệ thống tạm dừng hoạt động.</strong></span></p>
+  <p><span style="font-size:12.0pt;">Nếu cần thêm thông tin hoặc hỗ trợ trực tiếp, Anh/Chị vui lòng gửi lại phản hồi tới </span><a href="mailto:it@vinmec.com"><span style="font-size:12.0pt;">it@vinmec.com</span></a><span style="font-size:12.0pt;"> hoặc IT cơ sở để được giải đáp.</span></p>
+  <p><span style="font-size:12.0pt;">Trân trọng!</span></p>
+</div>'
